@@ -31,7 +31,8 @@ PAGE
 eyebrow: Preserving the nuclear testing moratorium
 title: What Counts as a Prohibited Nuclear Explosion?
 paragraph: Recent concerns regarding China’s alleged covert nuclear test in 2020 have revived old debates about the effectiveness of the Comprehensive Nuclear-Test-Ban Treaty’s (CTBT) verification regime in detecting low-yield nuclear tests, as well as concerns about the fragility of the norm against testing amid broader developments. Ambiguities around definitions, and what the treaty text permits and prohibits, have complicated the situation further. As the CTBT marks thirty years since it opened for signature, the treaty has still not entered into force, and therefore, its consultations and clarifications and on-site inspection mechanisms remain unavailable. In the current strained geopolitical environment, the question of what can be done to preserve the nuclear testing moratorium is therefore an urgent one, particularly in the absence of the CTBT’s entry-into-force and of additional voluntary confidence-building measures, at a time when the risk of nuclear experiments or activities that may be prohibited being conducted and going undetected, or being misinterpreted, is rising.
-paragraph: Article I of the CTBT states that each State Party "undertakes not to carry out any nuclear weapon test explosion or any other nuclear explosion, and to prohibit and prevent any such nuclear explosion at any place under its jurisdiction or control." Below what yield does an experiment stop being an "explosion", and what can the monitoring network actually see? Try it below.
+
+paragraph: Article I of the CTBT states that each State Party "undertakes not to carry out any nuclear weapon test explosion or any other nuclear explosion, and to prohibit and prevent any such nuclear explosion at any place under its jurisdiction or control." At what point does permitted experiment become a prohibited nuclear explosion? Explore these considerations below.
 photo: castle-bravo.jpg
 photo description: The fireball and layered cloud of the Castle Bravo nuclear test, glowing orange against a dark red sky
 caption: Plate 1. Castle Bravo, 1 March 1954, about 15 megatonnes, nearly three times what its planners estimated. Toned to sepia.
@@ -42,11 +43,11 @@ tab 2: Test yourself
 SCALE
 heading: Drag a test along the scale
 intro: Read it like a ruler where every tick is ten times the one before, and the ticks spread further apart as yields grow. There is no zero: the scale runs from a tenth of a milligram to 100 megatonnes, eighteen steps of ten. It is stretched to show how far apart big yields are, but it is still not a true to-scale line. Muffle the test in a cavity, change what the monitoring network can see, and tap any marker for the story behind it.
-note: Simplified. Real detection depends on geology, location and how dense the local network is. The ×70 factor comes from one 1966 test; von Hippel assumes about 10 to 20 for the alleged 2020 event. Real factors depend on cavity size, depth and frequency band. The US ~2 kg margin was a former safety-programme standard, and it is unclear whether it still holds.
-verdict detected: Above the IMS's reported reach. The network would very likely detect and locate an event like this.
-verdict muffled: Muffled below the IMS's reported reach. This is the decoupling problem: a test that should be caught may not be.
-verdict below: Below the IMS's reported reach. Detection is uncertain and unlikely, and attribution would fall to states, often relying on intelligence that cannot be shared.
-verdict far below: Detection is not possible at this size. Any claim would rest on intelligence that cannot be shared.
+note: Simplified and not to scale. Actual detection depends on a variety of factors, such as the yield of the explosion, the degree of decoupling achieved, the geology and distance between the test site and monitoring stations geology. 
+verdict detected: Above the IMS's event detection threshold. The network would detect an event of this yield.
+verdict muffled: Muffled below the IMS's detection threshold.
+verdict below: Below the IMS's detection threshold. Detection is unlikely.
+verdict far below: Detection by the IMS is not possible at this yield level.
 
 # ---------- MARKERS ON THE SCALE ----------
 # shape: point, range (needs "up to:"), open range (fades at both ends), or ims (the IMS line)
@@ -67,7 +68,7 @@ title: Hydronuclear experiments · an open range
 yield: 10 g
 up to: 1 t
 shape: open range
-text: There is no agreed start or end point. These experiments cross the self-sustaining threshold. The US definition prohibits any explosion that produces a self-sustaining chain reaction, while senior Russian officials have said permitted experiments might range up to a metric ton.
+text: Ranges from much less than 1 kg TNT equivalent to many tonnes. These experiments cross the self-sustaining threshold. The US definition prohibits any explosion that produces a self-sustaining chain reaction, while senior Russian officials have said permitted experiments might range up to a metric ton.
 
 MARKER
 label: Reported US margin (likely a former standard)
@@ -78,17 +79,17 @@ shape: point
 text: In 1993 US policy circles reportedly designated "zero" yield as 1.8 kg of TNT equivalent, tied to the one-point safety standard for warheads, and presented it as a margin for possible error rather than a threshold. Dragon's Tail gives the US historical figure as two kilograms. This was a standard of the US warhead safety programme, and it is unclear whether it still holds today.
 
 MARKER
-label: Reported Russian figure ~100 kg
+label: Reported Russian threshold for permitted hydronuclear tests  ~100 kg
 short name: Reported Russian figure
-title: Reported Russian figure · ~100 kg
+title: Reported Russian threshold for permitted hydronuclear tests · ~100 kg
 yield: 100 kg
 shape: point
 text: Dragon's Tail reports that the Soviet Union has considered the hydronuclear energy release region to extend to 100 kg, and that academician Viktor Mikhailov has suggested it could reach one metric ton. It also notes that Russia has never accepted the US definition of a zero-yield test.
 
 MARKER
-label: China alleged (coupled)
-short name: China alleged, if coupled
-title: China's alleged 2020 test, if coupled · ~3 to 15 t
+label: China alleged (normally coupled or not decoupled)
+short name: China alleged, normally coupled
+title: China's alleged 2020 test, if normally coupled · ~3 to 15 t
 yield: 3 t
 up to: 15 t
 shape: range
@@ -197,76 +198,79 @@ text: "What the seismometers see" is the real yield divided by the decoupling fa
 # ---------- THE QUIZ ----------
 # answer: permitted, prohibited, unclear, true or false.
 # Two accepted answers: "unclear or prohibited".
-# Optional: "explain if permitted:" gives a different explanation when a reader picks that wrong answer.
 # "show verdict: no" hides the bold verdict before the explanation.
 # True/false questions: just use answer: true or answer: false.
 
 QUIZ INTRO
-heading: How is each event under the CTBT widely read?
-intro: Pick how each event is widely understood under the treaty: permitted, prohibited or unclear. This should give you an idea of the depth of ambiguities and technicalities surrounding what constitutes a prohibited nuclear explosion. Don't worry if you are unsure – that really is the point!
+heading: How is each event under the CTBT widely understood?
+intro: Pick how each event is widely understood under the treaty: permitted, prohibited or unclear, and guess whether some statements are true or false. This should give you an idea of the several of ambiguities, technicalities and differing interpretations around what constitutes a prohibited nuclear explosion. Don't worry if you are unsure – that really is the point!
 
 QUESTION
-question: A subcritical experiments with with fissile material
+question: Subcritical experiments with with fissile material
 answer: permitted
-explain: Subcritical experiments, which do not produce a self-sustaining fission chain reaction, are permitted. 
+explain: Subcritical experiments, which do not produce a self-sustaining fission chain reaction, are permitted. Although, it is worth keeping in mind that many non-nuclear weapon states under the NPT view subcritical experiments as a violation of the spirit, if not letter of the CTBT.
 
 QUESTION
-question: A hydronuclear test releasing a few kilograms of TNT equivalent
+question: Hydronuclear tests releasing a few kilograms of TNT equivalent
 answer: unclear or prohibited
-explain: Depends on whom you ask. The US definition of zero yield prohibits all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind. However, Russia reportedly considered that the release of nuclear energy from permitted experiments might range up to 100 kg of TNT equivalent, unlike the US limit of around 2 kg. Russia is likely to have a more liberal interpretation of the zero-yield standard, and has never accepted the US definition of the zero-yield standard on technical terms. Reported declarations from Russian officials indicate that testing with yields around 100 kg is not a violation of the hydronuclear regime.
-explain if permitted: Under the US definition of zero yield, to which the CTBT is commonly referred, all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind are prohibited. However, it is worth noting that reported declarations from Russian officials suggest that testing with yields of around 100 kg would not violate the hydronuclear regime.
+explain if unclear: Depends on whom you ask. The US definition of zero yield prohibits all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind. However, Russia reportedly considered that the release of nuclear energy from permitted experiments might range up to 100 kg of TNT equivalent, unlike the US limit of around 2 kg. Reported declarations from Russian officials indicate that testing with yields around 100 kg is not a violation of the hydronuclear regime.
+explain if prohibited: Under the US definition of zero yield, to which the CTBT is commonly referred, all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind are prohibited. While it is worth noting that reported declarations from Russian officials suggest that testing with yields of around 100 kg would not constitute a prohibited explosion, hydronuclear tests are widely regarded as prohibited under the CTBT.
+explain if permitted: Under the US definition of zero yield, to which the CTBT is commonly referred, all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind are prohibited. While it is worth noting that reported declarations from Russian officials suggest that testing with yields of around 100 kg would not constitute a prohibited explosion, hydronuclear tests are widely regarded as prohibited under the CTBT.
 show verdict: no
 
 QUESTION
-question: A hydronuclear test run inside a large containment vessel in a laboratory
+question: Fully-contained hydronuclear tests conducted inside a containment vessel in a laboratory
 answer: unclear or prohibited
-explain: Again, depends on whom you ask. In the US interpretation of the zero-yield standard, hydronuclear experiments that briefly produce supercritical nuclear chain reactions are prohibited, irrespective of whether they are conducted in a containment vessel in a laboratory. However, it is worth noting that it is unclear whether Russia views hydronuclear "experiments" (or tests) as prohibited "explosions."
+explain: Again, it depends on whom you ask. According to the US interpretation of the zero-yield standard, hydronuclear tests that briefly produce supercritical nuclear chain reactions are prohibited, regardless of whether they are conducted in a laboratory containment vessel. However, it is unclear whether Russia considers hydronuclear 'experiments' (or tests) to be prohibited 'explosions'. Despite certain reported divergences, hydronuclear tests are widely regarded as prohibited under the CTBT.
 show verdict: no
 
 QUESTION
-question: A nuclear test set off in an underground salt cavity to muffle the signal
+question: Nuclear tests set off in an underground salt cavity to muffle/reduce the seismic signal
 answer: prohibited
-explain: A nuclear test in a salt cavity to muffle or reduce the seismic signal would be a cheating scenario to evade monitoring capabilities. Known as a "decoupled explosion," it is therefore as prohibited as any other, since the CTBT bans all nuclear test explosions and does not control how they are conducted.
+explain: A nuclear test in a salt cavity to muffle or reduce the seismic signal would be a cheating scenario to evade monitoring capabilities. Known as a "decoupled explosion," these explosions are therefore as prohibited as any other.
 
 QUESTION
-question: A "peaceful" nuclear explosion to dig a canal
+question: Peaceful nuclear explosions conducted for non-military purposes such as the large-scale excavation to create reservoirs, canals and ports
 answer: prohibited
 explain: The CTBT bans all nuclear explosions, whether for military or peaceful purposes.
 
 QUESTION
-question: Computer simulations of a weapon design
+question: Computer-based modelling or simulations to test weapon designs
 answer: permitted
-explain: Indonesia formally proposed in 1995 to prohibit any nuclear weapon testing activity, whether explosive or not. The final treaty bans explosions only.
+explain: Computer simulations to replace nuclear materials are widely regarded as permitted under the CTBT. In the Clinton administration's article-by-article analysis of the CTBT, computer modelling was recognised as an activity not affected by the treaty in order to ensure the safety and reliability of its nuclear weapons stockpile.
 
 QUESTION
 question: Inertial confinement fusion experiments
 answer: permitted
-explain: The Clinton administration's article-by-article analysis lists "activities not prohibited", which includes examples of activities that are not prohibited by the treaty: hydrodynamic experiments that might involve sub-critical amounts of fissile materials, inertial confinement fusion (ICF) experiments, experiments using pulsed-power facilities and the operation of nuclear power or research reactors.
+explain: The Clinton administration's article-by-article analysis of the treaty lists "activities not prohibited", which includes: hydrodynamic experiments that might involve sub-critical amounts of fissile materials, inertial confinement fusion (ICF) experiments, experiments using pulsed-power facilities and the operation of nuclear power or research reactors.
 
 QUESTION
-question: A 100 kt underground test, below the old TTBT cap of 150 kt
+question: A 100 kt underground nuclear test, below the old TTBT threshold of 150 kt
 answer: prohibited
-explain: The 1974 TTBT permitted underground tests up to 150 kt, but underground nuclear testing is prohibited by the CTBT, which bans all nuclear explosions.
+explain: The 1974 TTBT permitted underground tests up to 150 kt, but underground nuclear testing is prohibited by the CTBT.
 
 QUESTION
-question: A non-nuclear high-explosive blast to calibrate detectors
+question: Non-nuclear chemical high-explosive experiments in order to better detect low-yield nuclear explosions
 answer: permitted
-explain: It is not a nuclear explosion. In September 2026 the NNSA ran a chemical high-explosive experiment with radiotracers in a tunnel at the Nevada National Security Site to improve detection of decoupled explosions.
+explain: It is not a nuclear explosion. In September 2026, the NNSA conducted one such chemical high-explosive experiment at the Nevada National Security Site to improve detection of decoupled explosions.
 
 QUESTION
-question: True or false: hydrodynamic tests that do not produce nuclear yield are prohibited to the non-nuclear-weapon states of the NPT
+question: True or false: 
+Hydrodynamic tests that do not produce nuclear yield are prohibited to the non-nuclear-weapon states of the NPT
 answer: true
 explain: These tests are prohibited to non-nuclear-weapon states by the NPT because they relate to a weapons program, which these states are prohibited from conducting.
 
 QUESTION
-question: True or false: all nuclear tests that cannot be detected by the CTBTO's IMS are permitted by default, given the perceived low military or strategic value
+question: True or false: 
+All nuclear tests that cannot be detected by the CTBTO's IMS network are permitted by default, given the perceived low military or strategic value
 answer: false
-explain: Whether a test can be detected has no bearing on whether it is prohibited. A hydronuclear experiment may fall below what the IMS can see, yet it is prohibited under one reading of zero yield. A decoupled test is hidden from the monitoring network, yet it is prohibited.
+explain: Whether a test can be detected or not has no bearing on whether it is prohibited. A hydronuclear test may fall below what the IMS can detect, yet it is widely considered to be prohibited under the treaty. Decoupled nuclear explosions are prohibited despite the challenges in detecting and identifying such events.
 
 QUESTION
-question: True or false: the CTBT sets a yield below which explosions are permitted
+question: True or false: 
+The CTBT establishes a yield threshold that defines a nuclear explosion that would be prohibited under the treaty. 
 answer: false
-explain: Unlike the 1974 Threshold Test Ban Treaty, which capped underground tests at 150 kilotons, the CTBT sets no permissible yield floor or ceiling.
+explain: Unlike the 150-kt limit in the TTBT, the CTBT does not establish a yield threshold that defines a nuclear explosion that would be prohibited under the treaty. 
 
 # ---------- FINAL SCORE MESSAGES ----------
 # The page uses the first ending whose "from score" the reader reaches.
@@ -275,11 +279,11 @@ explain: Unlike the 1974 Threshold Test Ban Treaty, which capped underground tes
 ENDING
 from score: 10
 cookie: yes
-text: Hurray! You're deep in the know-how of the legal-technical CTBT nitty-gritty. Have a cookie.
+text: Hurray! You're deep in the know-how of the legal-technical CTBT nitty-gritty. Have a cookie
 
 ENDING
 from score: 6
-text: Not bad. You understand enough of this to know that challenges facing the nuclear testing moratorium are bleak and opportunities for clarifications and dialogue are too far and few in between.
+text: Nicely done. A few curveballs, but that's because they really are curveballs. 
 
 ENDING
 from score: 0
