@@ -6,39 +6,39 @@
 <title>Where Is the Line?</title>
 <!-- This file is the machinery. To change any words, edit content.txt instead. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap">
 <style>
 /* VOICE calm, plain, a little curious. Reported readings, never verdicts
    IDEA a yield scale with a draggable test pin, an honest straight-scale strip, then a sorting quiz
    COLOUR warm paper, soft ink, flat pastel accents (apricot, rose, sage, sky)
-   TYPE Newsreader for headings, Inter for text
+   TYPE Courier Prime throughout, a readable typewriter face
    LAYOUT one quiet column, generous space, no borders or shadows, flat shapes */
 :root{color-scheme:light;
  --bg:#f4ecda;--ink:#2b241b;--mute:#78695a;--soft:#ebe0c9;--soft2:#e1d3b5;
  --apricot:#e68a52;--rose:#d4655c;--sage:#6f9a80;--sky:#4f7fae;--sand:#d9b45a}
 *{box-sizing:border-box;min-width:0}
 html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font:16px/1.65 "Courier Prime","Courier New",monospace;overflow-x:clip}
 .band{padding-block:clamp(28px,5vw,64px);padding-inline:max(5vw,18px)}
 .wrap{max-width:1040px;margin:0 auto}
 .narrow{max-width:700px;margin:0 auto;text-align:left}
 .narrow p,.lede,.card p,.fb p,.note,.src li,.foot .small,figcaption{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
-h1,h2,h3{font-family:Newsreader,Georgia,serif;font-weight:500;letter-spacing:-.01em;margin:0}
-h1{font-size:clamp(38px,6vw,64px);line-height:1.02;text-wrap:balance}
+h1,h2,h3{font-family:"Courier Prime","Courier New",monospace;font-weight:700;letter-spacing:-.01em;margin:0}
+h1{font-size:clamp(30px,4.4vw,46px);line-height:1.02;text-wrap:balance}
 h2{font-size:clamp(28px,3.6vw,38px);line-height:1.1;margin-bottom:10px;text-wrap:balance}
 .eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--apricot);font-weight:600;margin:0 0 14px}
 .intro p{font-size:18px;margin:0 0 16px}
-.intro .lead{font-family:Newsreader,Georgia,serif;font-size:clamp(21px,2.4vw,26px);line-height:1.35;color:var(--ink);margin-top:26px}
+.intro .lead{font-family:"Courier Prime","Courier New",monospace;font-size:clamp(21px,2.4vw,26px);line-height:1.35;color:var(--ink);margin-top:26px}
 figure{margin:0 auto;max-width:640px}
 figure img{display:block;width:100%;height:auto;border-radius:0;filter:sepia(.5) saturate(.85) contrast(1.03);border:1px solid var(--soft2)}
 figcaption{font-size:14px;color:var(--mute);margin-top:10px}
 .lede{max-width:64ch;color:var(--mute);margin:0 0 22px;font-size:17px}
 .panel{background:var(--soft);border-radius:26px;padding:clamp(18px,3vw,34px)}
 .figscroll{overflow-x:auto;overscroll-behavior-x:contain}
-.fig{position:relative;height:340px;min-width:980px}
+.fig{position:relative;height:340px;min-width:840px}
 .fig>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .swipe{display:none;font-size:14px;color:var(--mute);margin:4px 0 0}
-svg text{font:500 12.5px Inter,sans-serif;paint-order:stroke;stroke:var(--soft);stroke-width:4px;stroke-linejoin:round}
+svg text{font:500 12px "Courier Prime","Courier New",monospace;paint-order:stroke;stroke:var(--soft);stroke-width:4px;stroke-linejoin:round}
 svg .tk{font-size:11.5px;fill:var(--mute)}
 .mk{cursor:pointer}
 .mk:focus{outline:none}
@@ -54,9 +54,9 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:32px;heigh
 input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--ink);border:4px solid var(--soft);box-shadow:0 0 0 1px var(--ink)}
 button:focus-visible,input:focus-visible{outline:3px solid var(--apricot);outline-offset:3px}
 .seg{display:inline-flex;border-radius:999px;background:var(--soft2);padding:4px;gap:2px}
-.seg button{font:500 14.5px Inter,sans-serif;border:0;background:none;color:var(--ink);padding:9px 16px;min-height:42px;border-radius:999px;cursor:pointer}
+.seg button{font:500 14.5px "Courier Prime","Courier New",monospace;border:0;background:none;color:var(--ink);padding:9px 16px;min-height:42px;border-radius:999px;cursor:pointer}
 .seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
-.chip{font:500 14.5px Inter,sans-serif;border:0;background:var(--soft2);color:var(--ink);border-radius:999px;padding:9px 16px;min-height:42px;cursor:pointer}
+.chip{font:500 14.5px "Courier Prime","Courier New",monospace;border:0;background:var(--soft2);color:var(--ink);border-radius:999px;padding:9px 16px;min-height:42px;cursor:pointer}
 .chip:hover{background:color-mix(in srgb,var(--apricot) 28%,var(--soft2))}
 .track{position:relative;height:36px;margin:-6px 0 0;--tw:32px}
 .band-cn{position:absolute;top:0;height:10px;border:0;border-radius:5px;background:var(--apricot);cursor:pointer;padding:0;min-width:0}
@@ -67,20 +67,25 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--apricot);outlin
 .card h3{font-size:22px;margin:0 0 6px}
 .card p{margin:0}
 .read{background:var(--bg);border-radius:20px;padding:22px 26px}
-.big{font-family:Newsreader,Georgia,serif;font-weight:500;font-size:clamp(38px,5vw,56px);line-height:1.05;white-space:nowrap}
+.big{font-family:"Courier Prime","Courier New",monospace;font-weight:500;font-size:clamp(38px,5vw,56px);line-height:1.05;white-space:nowrap}
 .row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--soft2)}
 .row b{white-space:nowrap;font-weight:600}
 .verdict{margin-top:14px;font-weight:500;padding:12px 14px;border-radius:14px;background:color-mix(in srgb,var(--rose) 16%,var(--bg))}
 .verdict.seen{background:color-mix(in srgb,var(--sage) 20%,var(--bg))}
 .note{font-size:14px;color:var(--mute);margin:14px 0 0}
 .game{display:flex;flex-direction:column;gap:18px;max-width:760px;margin:0 auto}
-.tabs{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;justify-content:center;gap:8px;padding:12px 5vw;border-block:1px solid var(--soft2)}
-.tabs button{font:500 16px Inter,sans-serif;border:0;background:none;color:var(--mute);padding:10px 22px;min-height:44px;border-radius:999px;cursor:pointer}
-.tabs button[aria-selected=true]{background:var(--ink);color:var(--bg)}
+.shell{display:grid;grid-template-columns:210px minmax(0,1fr)}
+.side{position:sticky;top:0;height:100vh;align-self:start;padding:36px 16px 24px;border-right:1px solid var(--soft2);display:flex;flex-direction:column;gap:6px;background:var(--bg);z-index:5}
+.side .brand{font-size:13px;color:var(--mute);margin:0 8px 18px;line-height:1.4}
+.side button{font:700 14.5px "Courier Prime","Courier New",monospace;text-align:left;border:0;background:none;color:var(--mute);padding:11px 12px;white-space:nowrap;min-height:44px;border-radius:12px;cursor:pointer}
+.side button:hover{color:var(--ink);background:var(--soft)}
+.side button[aria-selected=true]{background:var(--ink);color:var(--bg)}
+@media(max-width:899px){.shell{display:block}.side{height:auto;flex-direction:row;justify-content:center;flex-wrap:wrap;border-right:0;border-bottom:1px solid var(--soft2);padding:10px 12px;gap:4px}.side .brand{display:none}.side button{padding:8px 8px;font-size:13.5px}}
+.src li{overflow-wrap:anywhere}
 .acc{margin-top:30px}
 .acc h3{font-size:24px;margin-bottom:6px}
 .acc details{background:var(--bg);border-radius:16px;padding:4px 20px;margin-top:10px}
-.acc summary{cursor:pointer;font:500 17px Inter,sans-serif;padding:12px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.acc summary{cursor:pointer;font:500 17px "Courier Prime","Courier New",monospace;padding:12px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
 .acc summary::-webkit-details-marker{display:none}
 .acc summary::after{content:"+";color:var(--apricot);font-size:22px;line-height:1}
 .acc details[open] summary::after{content:"\2212"}
@@ -89,23 +94,19 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--apricot);outlin
 .cookie{vertical-align:middle;margin-left:6px;animation:cookie 3.2s ease-in-out forwards;opacity:0}
 @keyframes cookie{0%{opacity:0;transform:scale(.2) rotate(-40deg)}15%{opacity:1;transform:scale(1.25) rotate(10deg)}30%{transform:scale(1) rotate(-6deg)}70%{opacity:1;transform:scale(1) rotate(6deg)}100%{opacity:0;transform:scale(.4) translateY(-14px)}}
 @media(prefers-reduced-motion:reduce){.cookie{animation:none;opacity:1}}
-.final{text-align:center;font:500 22px/1.4 Newsreader,Georgia,serif;margin:22px auto 0;max-width:640px}
+.final{text-align:center;font:500 22px/1.4 "Courier Prime","Courier New",monospace;margin:22px auto 0;max-width:640px}
 .qnav{display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap}
-.qnav button{font:500 15px Inter,sans-serif;border:0;border-radius:999px;background:var(--soft2);color:var(--ink);padding:10px 20px;min-height:44px;cursor:pointer}
+.qnav button{font:500 15px "Courier Prime","Courier New",monospace;border:0;border-radius:999px;background:var(--soft2);color:var(--ink);padding:10px 20px;min-height:44px;cursor:pointer}
 .qnav button:disabled{opacity:.4;cursor:default}
 .qnav button:not(:disabled):hover{background:color-mix(in srgb,var(--apricot) 28%,var(--soft2))}
-details.srcs{max-width:820px;margin:0 auto}
-details.srcs summary{cursor:pointer;font:500 26px Newsreader,Georgia,serif;list-style:none;text-align:center;padding:6px 0}
-details.srcs summary::-webkit-details-marker{display:none}
-details.srcs summary::after{content:" +";color:var(--apricot)}
-details.srcs[open] summary::after{content:" \2212"}
+.srcs h2{text-align:center;max-width:820px;margin:0 auto 6px}
 .srcs h3{font-size:19px;margin:22px 0 8px;max-width:820px;margin-inline:auto}
 .srcs ol{margin-inline:auto}
 .q{background:var(--soft);border-radius:26px;padding:28px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between}
 .q .n{font-size:14px;color:var(--mute);font-weight:500}
-.q .t{font:500 clamp(23px,2.7vw,30px)/1.2 Newsreader,Georgia,serif;margin:10px 0 22px}
+.q .t{font:500 clamp(23px,2.7vw,30px)/1.2 "Courier Prime","Courier New",monospace;margin:10px 0 22px}
 .ans{display:flex;flex-wrap:wrap;gap:10px}
-.ans button{flex:1 1 110px;font:600 15px Inter,sans-serif;min-height:48px;border-radius:999px;border:0;cursor:pointer;color:var(--ink)}
+.ans button{flex:1 1 110px;font:600 15px "Courier Prime","Courier New",monospace;min-height:48px;border-radius:999px;border:0;cursor:pointer;color:var(--ink)}
 .ans .allowed{background:color-mix(in srgb,var(--sage) 38%,var(--soft))}
 .ans .banned{background:color-mix(in srgb,var(--rose) 34%,var(--soft))}
 .ans .disputed{background:color-mix(in srgb,var(--sand) 42%,var(--soft))}
@@ -123,11 +124,11 @@ details.srcs[open] summary::after{content:" \2212"}
 .fb h3{margin:0 0 8px;font-size:26px}
 .fb p{margin:0}
 .fb .next{margin-top:16px}
-.score{font:500 20px Newsreader,serif;margin-top:14px}
+.score{font:500 20px "Courier Prime","Courier New",monospace;margin-top:14px}
 .src{font-size:14px;color:var(--mute);padding-left:22px;max-width:820px}
 .src li{margin-bottom:8px}
 a{color:var(--sky)}
-.foot{background:var(--soft)}
+.foot{background:var(--bg)}
 .foot h2{font-size:26px}
 @media(max-width:760px){.two{grid-template-columns:minmax(0,1fr)}.swipe{display:block}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -136,6 +137,14 @@ a{color:var(--sky)}
 </head>
 <body>
 <div class="warn" id="warn" hidden></div>
+<div class="shell">
+<nav class="side" role="tablist" aria-label="Sections">
+  <p class="brand" id="sideBrand"></p>
+  <button role="tab" id="t1" aria-selected="true" aria-controls="tab-explore"></button>
+  <button role="tab" id="t2" aria-selected="false" aria-controls="tab-quiz"></button>
+  <button role="tab" id="t3" aria-selected="false" aria-controls="tab-sources"></button>
+</nav>
+<main>
 <header class="band">
   <div class="wrap">
     <div class="narrow intro">
@@ -150,7 +159,7 @@ a{color:var(--sky)}
   </div>
 </header>
 
-<div class="tabs" role="tablist" aria-label="Sections"><button role="tab" id="t1" aria-selected="true" aria-controls="tab-explore"></button><button role="tab" id="t2" aria-selected="false" aria-controls="tab-quiz"></button></div>
+
 
 <section class="band" id="tab-explore" role="tabpanel" aria-label="Yield explorer" style="padding-top:clamp(24px,4vw,44px)">
   <div class="wrap">
@@ -214,15 +223,18 @@ a{color:var(--sky)}
   </div>
 </section>
 
-<section class="band foot">
+<section class="band foot" id="tab-sources" role="tabpanel" aria-labelledby="t3" hidden>
   <div class="wrap">
-    <details class="srcs" id="srcs"><summary id="srcHead">Sources</summary>
+    <div class="srcs" id="srcs">
+      <h2 id="srcHead">Sources</h2>
       <h3 id="usedHead"></h3><ol class="src" id="srcUsed"></ol>
       <h3 id="furtherHead"></h3><ol class="src" id="srcFurther"></ol>
       <div id="srcNotes"></div>
-    </details>
+    </div>
   </div>
 </section>
+</main>
+</div>
 
 <script>
 {
@@ -268,11 +280,11 @@ function build(B){
   const tf=a[0]==="true"||a[0]==="false",cu={};["permitted","prohibited","unclear","true","false"].forEach(w=>{const x=one(b,"explain if "+w);if(x)cu[WD[w]]=x});
   return{q:one(b,"question"),a,ex:one(b,"explain"),tf,cu,noV:/^n/i.test(one(b,"show verdict"))}}).filter(Boolean);
  const EN=get("ENDING").map(b=>({min:+one(b,"from score","0")||0,cookie:/^y/i.test(one(b,"cookie")),txt:one(b,"text")})).sort((a,b)=>b.min-a.min);
- $("srcHead").textContent=one(SR,"heading","Sources");$("usedHead").textContent=one(SR,"used heading");$("furtherHead").textContent=one(SR,"further heading");
+ $("srcHead").textContent=one(SR,"heading","Sources");$("t3").textContent=one(SR,"heading","Sources");$("sideBrand").textContent=one(P,"eyebrow");$("usedHead").textContent=one(SR,"used heading");$("furtherHead").textContent=one(SR,"further heading");
  const src=g=>get("SOURCE").filter(b=>one(b,"list","used").toLowerCase()===g).map(b=>`<li>${rich(one(b,"text"))}</li>`).join("");
  $("srcUsed").innerHTML=src("used");$("srcFurther").innerHTML=src("further");
  $("srcNotes").innerHTML=get("SOURCES NOTE").map(b=>`<p class="small" style="max-width:820px;margin-inline:auto;margin-top:14px">${rich(one(b,"text"))}</p>`).join("");
- document.addEventListener("click",e=>{const a=e.target.closest("a[data-in]");if(!a)return;e.preventDefault();const d=$("srcs");d.open=true;d.scrollIntoView({behavior:"smooth"})});
+ document.addEventListener("click",e=>{const a=e.target.closest("a[data-in]");if(!a)return;e.preventDefault();$("t3").click()});
  return{M,Q,EN,V}}
 
 function run({M,Q,EN,V}){
@@ -301,7 +313,7 @@ function draw(){
  s+=`<line x1="${x(thr)}" x2="${x(thr)}" y1="14" y2="${base+11}" stroke="var(--rose)" stroke-width="2"/>`;
  const ims=M.find(m=>m.k==="ims");
  s+=`<g class="mk" tabindex="0" role="button" aria-label="IMS sensitivity"${ims?` data-id="${ims.id}"`:""}><text x="${x(thr)+8}" y="26" style="fill:var(--rose);font-weight:600">IMS ~${fmt(thr)}</text></g>`;
- const items=M.filter(m=>m.k!=="ims").map(m=>{const a=x(m.v),b=m.v2?x(m.v2):a,mx=(a+b)/2,w=m.lab.length*6.3+10;return{m,a,b,mx,w,l:Math.max(pad,Math.min(W-pad-w,mx-w/2))}}).sort((p,q)=>p.mx-q.mx);
+ const items=M.filter(m=>m.k!=="ims").map(m=>{const a=x(m.v),b=m.v2?x(m.v2):a,mx=(a+b)/2,w=m.lab.length*7.3+10;return{m,a,b,mx,w,l:Math.max(pad,Math.min(W-pad-w,mx-w/2))}}).sort((p,q)=>p.mx-q.mx);
  const ends=[];const rowH=29,top=base-34;
  items.forEach(it=>{let r=0;while(ends[r]!==undefined&&ends[r]+10>it.l)r++;ends[r]=it.l+it.w;it.r=r});
  items.forEach(it=>{const m=it.m,y=top-it.r*rowH,hot=m.hot;
@@ -342,8 +354,8 @@ seg(["dc0","dc1","dc2","dc3"],i=>st.f=FS[i]);seg(["th0","th1"],i=>st.th=i?250000
 $("yield").min=UMIN;$("yield").max=UMAX;setSlider();
 update();
 {const fs=$("fs");if(fs.scrollWidth>fs.clientWidth){const f=fU(L(3e5));fs.scrollLeft=fs.scrollWidth*f-fs.clientWidth/2}}
-const tabs=[["t1","tab-explore"],["t2","tab-quiz"]];
-tabs.forEach(([t,pn])=>$(t).addEventListener("click",()=>{tabs.forEach(([t2,p2])=>{$(t2).setAttribute("aria-selected",t2===t);$(p2).hidden=p2!==pn});if(pn==="tab-explore")draw();window.scrollTo({top:$("t1").parentElement.offsetTop,behavior:"smooth"})}));
+const tabs=[["t1","tab-explore"],["t2","tab-quiz"],["t3","tab-sources"]];
+tabs.forEach(([t,pn])=>$(t).addEventListener("click",()=>{tabs.forEach(([t2,p2])=>{$(t2).setAttribute("aria-selected",t2===t);$(p2).hidden=p2!==pn});if(pn==="tab-explore")draw();const nav=document.querySelector(".side"),off=nav.offsetHeight<200?nav.offsetHeight:0;window.scrollTo({top:$(pn).getBoundingClientRect().top+scrollY-off,behavior:"smooth"})}));
 /* quiz */
 const LAB={allowed:"Widely read as permitted",banned:"Prohibited",disputed:"Unclear"};
 const COOKIE=`<svg class="cookie" viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="#c98a4b"/><circle cx="20" cy="20" r="17" fill="none" stroke="#a96b30" stroke-width="2"/><circle cx="13" cy="14" r="2.6" fill="#4a2c17"/><circle cx="25" cy="12" r="2.2" fill="#4a2c17"/><circle cx="27" cy="24" r="2.8" fill="#4a2c17"/><circle cx="15" cy="26" r="2.4" fill="#4a2c17"/><circle cx="21" cy="19" r="1.8" fill="#4a2c17"/></svg>`;
