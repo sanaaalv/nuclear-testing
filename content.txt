@@ -208,20 +208,20 @@ intro: Pick how each event is widely understood under the treaty: permitted, pro
 QUESTION
 question: Subcritical experiments with fissile material
 answer: permitted
-explain: Subcritical experiments, which do not produce a self-sustaining fission chain reaction, are permitted. Although, it is worth keeping in mind that many non-nuclear weapon states under the NPT view subcritical experiments as a violation of the spirit, if not letter of the CTBT.
+explain: Subcritical experiments, which do not produce a self-sustaining fission chain reaction, are permitted. Although, it is worth keeping in mind that some non-nuclear weapon states under the NPT view subcritical experiments as a violation of the spirit, if not letter of the CTBT.
 
 QUESTION
 question: Hydronuclear tests releasing a few kilograms of TNT equivalent
 answer: unclear or prohibited
-explain if unclear: Depends on whom you ask. The US definition of zero yield prohibits all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind. However, Russia reportedly considered that the release of nuclear energy from permitted experiments might range up to 100 kg of TNT equivalent, unlike the US limit of around 2 kg. Reported declarations from Russian officials indicate that testing with yields around 100 kg is not a violation of the hydronuclear regime.
-explain if prohibited: Under the US definition of zero yield, to which the CTBT is commonly referred, all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind are prohibited. While it is worth noting that reported declarations from Russian officials suggest that testing with yields of around 100 kg would not constitute a prohibited explosion, hydronuclear tests are widely regarded as prohibited under the CTBT.
+explain if unclear: Depends on whom you ask. The US definition of zero yield prohibits all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind. However, Russia reportedly considered that the release of nuclear energy from permitted experiments might range up to 100 kg of TNT equivalent, unlike the US limit of around 2 kg. Reported declarations from Russian officials indicate that testing with yields around 100 kg is not a violation of the hydronuclear regime. Despite differing interpretations, hydronuclear tests are widely regarded as prohibited under the CTBT.
+explain if prohibited: Under the US definition of zero yield, to which the CTBT is commonly referred, all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind are prohibited. While it is worth bearing in mind that Russia reportedly considers tests involving yields of around 100 kg to be permissible, hydronuclear tests are widely regarded as prohibited under the CTBT.
 explain if permitted: Under the US definition of zero yield, to which the CTBT is commonly referred, all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind are prohibited. While it is worth noting that reported declarations from Russian officials suggest that testing with yields of around 100 kg would not constitute a prohibited explosion, hydronuclear tests are widely regarded as prohibited under the CTBT.
 show verdict: no
 
 QUESTION
 question: Fully-contained hydronuclear tests conducted inside a containment vessel in a laboratory
 answer: unclear or prohibited
-explain: Again, it depends on whom you ask. According to the US interpretation of the zero-yield standard, hydronuclear tests that briefly produce supercritical nuclear chain reactions are prohibited, regardless of whether they are conducted in a laboratory containment vessel. However, it is unclear whether Russia considers hydronuclear 'experiments' (or tests) to be prohibited 'explosions'. Despite certain reported divergences, hydronuclear tests are widely regarded as prohibited under the CTBT.
+explain: Again, it depends on whom you ask. According to the US interpretation of the zero-yield standard, hydronuclear tests are prohibited, regardless of whether they are conducted in a laboratory containment vessel. However, it is unlikely that Russia considers hydronuclear 'experiments' (or tests) to be prohibited 'explosions'. Despite certain reported divergences, hydronuclear tests are widely regarded as prohibited under the CTBT.
 show verdict: no
 
 QUESTION
@@ -245,7 +245,7 @@ answer: permitted
 explain: The Clinton administration's article-by-article analysis of the treaty lists "activities not prohibited", which includes: hydrodynamic experiments that might involve sub-critical amounts of fissile materials, inertial confinement fusion (ICF) experiments, experiments using pulsed-power facilities and the operation of nuclear power or research reactors.
 
 QUESTION
-question: A 100 kt underground nuclear test, below the old TTBT threshold of 150 kt
+question: A 10 kt underground nuclear test, well below the TTBT threshold of 150 kt
 answer: prohibited
 explain: The 1974 TTBT permitted underground tests up to 150 kt, but underground nuclear testing is prohibited by the CTBT.
 
