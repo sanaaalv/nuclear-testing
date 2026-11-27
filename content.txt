@@ -287,7 +287,7 @@ text: Nicely done. A few curveballs, but that's because they really are curvebal
 
 ENDING
 from score: 0
-text: Great effort! If you're interested in going down a rabbit hole to see what's all this confusion about a treaty that is supposed to ban nuclear tests, plain and simple, please feel free to peruse through the [sources and links](#sources). Happy reading!
+text: Great effort! If you're interested in going down a rabbit hole to see what's all this confusion about a treaty that is supposed to simply ban nuclear all tests, please feel free to look through the [sources and links](#sources). Happy reading!
 
 # ---------- SOURCES ----------
 SOURCES
