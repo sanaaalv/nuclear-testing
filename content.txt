@@ -279,7 +279,7 @@ explain: Unlike the 150-kt limit in the TTBT, the CTBT does not establish a yiel
 ENDING
 from score: 10
 cookie: yes
-text: Hurray! You're deep in the know-how of the legal-technical CTBT nitty-gritty. Have a cookie
+text: Hurray! Clearly, you know your way around the fine print. Have a cookie!
 
 ENDING
 from score: 6
@@ -287,7 +287,7 @@ text: Nicely done. A few curveballs, but that's because they really are curvebal
 
 ENDING
 from score: 0
-text: Great effort! If you're interested in going down a rabbit hole to see what's all this confusion about a treaty that is supposed to simply ban nuclear all tests, please feel free to look through the [sources and links](#sources). Happy reading!
+text: Great effort! If you're interested in going down a rabbit hole to see what's all this confusion about a treaty that is supposed to simply ban all nuclear tests, please feel free to look through the [sources and links](#sources). Happy reading!
 
 # ---------- SOURCES ----------
 SOURCES
