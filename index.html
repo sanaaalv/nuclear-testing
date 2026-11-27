@@ -74,13 +74,20 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--apricot);outlin
 .verdict.seen{background:color-mix(in srgb,var(--sage) 20%,var(--bg))}
 .note{font-size:14px;color:var(--mute);margin:14px 0 0}
 .game{display:flex;flex-direction:column;gap:18px;max-width:760px;margin:0 auto}
-.shell{display:grid;grid-template-columns:210px minmax(0,1fr)}
+.shell{display:grid;grid-template-columns:226px minmax(0,1fr)}
+.intro .eyebrow{text-align:left}
 .side{position:sticky;top:0;height:100vh;align-self:start;padding:36px 16px 24px;border-right:1px solid var(--soft2);display:flex;flex-direction:column;gap:6px;background:var(--bg);z-index:5}
-.side .brand{font-size:13px;color:var(--mute);margin:0 8px 18px;line-height:1.4}
+
 .side button{font:700 14.5px "Courier Prime","Courier New",monospace;text-align:left;border:0;background:none;color:var(--mute);padding:11px 12px;white-space:nowrap;min-height:44px;border-radius:12px;cursor:pointer}
 .side button:hover{color:var(--ink);background:var(--soft)}
 .side button[aria-selected=true]{background:var(--ink);color:var(--bg)}
-@media(max-width:899px){.shell{display:block}.side{height:auto;flex-direction:row;justify-content:center;flex-wrap:wrap;border-right:0;border-bottom:1px solid var(--soft2);padding:10px 12px;gap:4px}.side .brand{display:none}.side button{padding:8px 8px;font-size:13.5px}}
+.side .brand{font:400 13px/1.4 "Courier Prime","Courier New",monospace;white-space:normal;color:var(--mute);padding:8px 12px;margin:0 0 14px;min-height:0}
+.side .brand:hover{color:var(--ink);background:none;text-decoration:underline}
+.side .brand[aria-selected=true]{background:none;color:var(--ink)}
+.side .brand .short{display:none}
+.terms details{background:var(--soft)!important}
+.terms h2{margin-bottom:14px}
+@media(max-width:899px){.shell{display:block}.side{height:auto;flex-direction:row;justify-content:center;flex-wrap:wrap;border-right:0;border-bottom:1px solid var(--soft2);padding:10px 12px;gap:4px}.side .brand{margin:0;padding:8px 8px;font:700 13.5px "Courier Prime","Courier New",monospace}.side .brand .long{display:none}.side .brand .short{display:inline}.side .brand[aria-selected=true]{background:var(--ink);color:var(--bg)}.side button{padding:8px 8px;font-size:13.5px}}
 .src li{overflow-wrap:anywhere}
 .acc{margin-top:30px}
 .acc h3{font-size:24px;margin-bottom:6px}
@@ -139,13 +146,14 @@ a{color:var(--sky)}
 <div class="warn" id="warn" hidden></div>
 <div class="shell">
 <nav class="side" role="tablist" aria-label="Sections">
-  <p class="brand" id="sideBrand"></p>
-  <button role="tab" id="t1" aria-selected="true" aria-controls="tab-explore"></button>
+  <button class="brand" id="t0" aria-selected="true" aria-controls="home" title="Back to the start"><span class="long" id="sideBrand"></span><span class="short">Home</span></button>
+  <button role="tab" id="tk" aria-selected="false" aria-controls="tab-terms"></button>
+  <button role="tab" id="t1" aria-selected="false" aria-controls="tab-explore"></button>
   <button role="tab" id="t2" aria-selected="false" aria-controls="tab-quiz"></button>
   <button role="tab" id="t3" aria-selected="false" aria-controls="tab-sources"></button>
 </nav>
 <main>
-<header class="band">
+<header class="band" id="home">
   <div class="wrap">
     <div class="narrow intro">
       <p class="eyebrow" id="eyebrow"></p>
@@ -161,7 +169,16 @@ a{color:var(--sky)}
 
 
 
-<section class="band" id="tab-explore" role="tabpanel" aria-label="Yield explorer" style="padding-top:clamp(24px,4vw,44px)">
+<section class="band" id="tab-terms" role="tabpanel" aria-labelledby="tk" hidden>
+  <div class="wrap">
+    <div class="narrow acc terms">
+      <h2 id="termsHead">Key terms</h2>
+      <div id="terms"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="tab-explore" role="tabpanel" aria-label="Yield explorer" hidden>
   <div class="wrap">
     <div class="panel">
       <h2 id="sHead"></h2>
@@ -197,8 +214,6 @@ a{color:var(--sky)}
         </div>
       </div>
       <div class="acc">
-        <h3>Key terms</h3>
-        <div id="terms"></div>
         <details><summary>Every value, if decoupled (×10 to ×20)</summary><div id="dtab"></div></details>
       </div>
     </div>
@@ -239,8 +254,17 @@ a{color:var(--sky)}
 <script>
 {
 const $=id=>document.getElementById(id);
+let redraw=()=>{};
+const VIEWS={"":["t0","home"],"key-terms":["tk","tab-terms"],"scale":["t1","tab-explore"],"quiz":["t2","tab-quiz"],"sources":["t3","tab-sources"]};
+function go(name,keep){if(!VIEWS[name])name="";
+ for(const k in VIEWS){const[t,p]=VIEWS[k];$(t).setAttribute("aria-selected",k===name);$(p).hidden=k!==name}
+ if(name==="scale")redraw();
+ if(!keep&&location.hash.slice(1)!==name){if(name)location.hash=name;else history.replaceState(null,"",location.pathname+location.search)}
+ window.scrollTo(0,0)}
+for(const k in VIEWS)$(VIEWS[k][0]).addEventListener("click",()=>go(k));
+addEventListener("hashchange",()=>go(location.hash.slice(1),true));
 const L=Math.log10;
-const KEYS=["eyebrow","title","paragraph","photo","photo description","caption","tab 1","tab 2","heading","intro","note","verdict detected","verdict muffled","verdict below","verdict far below","label","short name","yield","up to","shape","highlight","text","name","question","answer","explain","explain if permitted","explain if prohibited","explain if unclear","explain if true","explain if false","show verdict","from score","cookie","used heading","further heading","list"];
+const KEYS=["eyebrow","title","paragraph","photo","photo description","caption","tab 1","tab 2","tab key terms","heading","intro","note","verdict detected","verdict muffled","verdict below","verdict far below","label","short name","yield","up to","shape","highlight","text","name","question","answer","explain","explain if permitted","explain if prohibited","explain if unclear","explain if true","explain if false","show verdict","from score","cookie","used heading","further heading","list"];
 const warns=[];
 function parse(t){const B=[];let cur=null,last=null;
  t.split(/\r?\n/).forEach((raw,i)=>{const s=raw.trim();if(!s||s.startsWith("#"))return;
@@ -265,7 +289,7 @@ function build(B){
  $("eyebrow").innerHTML=rich(one(P,"eyebrow"));$("title").innerHTML=rich(one(P,"title"));
  $("paras").innerHTML=all(P,"paragraph").map(p=>`<p>${rich(p)}</p>`).join("");
  const ph=one(P,"photo");if(ph&&/^[\w.\-\/]+$/.test(ph)){$("photo").src=ph;$("photo").alt=one(P,"photo description");$("caption").innerHTML=rich(one(P,"caption"))}else $("fig").hidden=true;
- $("t1").textContent=one(P,"tab 1","Explore the scale");$("t2").textContent=one(P,"tab 2","Test yourself");
+ $("t1").textContent=one(P,"tab 1","Explore the scale");$("t2").textContent=one(P,"tab 2","Test your knowledge");$("tk").textContent=one(P,"tab key terms","Key terms");$("termsHead").textContent=one(P,"tab key terms","Key terms");
  $("sHead").innerHTML=rich(one(S,"heading"));$("sIntro").innerHTML=rich(one(S,"intro"));$("sNote").innerHTML=rich(one(S,"note"));
  const V={seen:one(S,"verdict detected"),muff:one(S,"verdict muffled"),below:one(S,"verdict below"),far:one(S,"verdict far below")};
  const SH={"point":"dot","range":"range","open range":"open","ims":"ims"};
@@ -284,7 +308,7 @@ function build(B){
  const src=g=>get("SOURCE").filter(b=>one(b,"list","used").toLowerCase()===g).map(b=>`<li>${rich(one(b,"text"))}</li>`).join("");
  $("srcUsed").innerHTML=src("used");$("srcFurther").innerHTML=src("further");
  $("srcNotes").innerHTML=get("SOURCES NOTE").map(b=>`<p class="small" style="max-width:820px;margin-inline:auto;margin-top:14px">${rich(one(b,"text"))}</p>`).join("");
- document.addEventListener("click",e=>{const a=e.target.closest("a[data-in]");if(!a)return;e.preventDefault();$("t3").click()});
+ document.addEventListener("click",e=>{const a=e.target.closest("a[data-in]");if(!a)return;e.preventDefault();go("sources")});
  return{M,Q,EN,V}}
 
 function run({M,Q,EN,V}){
@@ -354,8 +378,7 @@ seg(["dc0","dc1","dc2","dc3"],i=>st.f=FS[i]);seg(["th0","th1"],i=>st.th=i?250000
 $("yield").min=UMIN;$("yield").max=UMAX;setSlider();
 update();
 {const fs=$("fs");if(fs.scrollWidth>fs.clientWidth){const f=fU(L(3e5));fs.scrollLeft=fs.scrollWidth*f-fs.clientWidth/2}}
-const tabs=[["t1","tab-explore"],["t2","tab-quiz"],["t3","tab-sources"]];
-tabs.forEach(([t,pn])=>$(t).addEventListener("click",()=>{tabs.forEach(([t2,p2])=>{$(t2).setAttribute("aria-selected",t2===t);$(p2).hidden=p2!==pn});if(pn==="tab-explore")draw();const nav=document.querySelector(".side"),off=nav.offsetHeight<200?nav.offsetHeight:0;window.scrollTo({top:$(pn).getBoundingClientRect().top+scrollY-off,behavior:"smooth"})}));
+redraw=()=>{draw();const fs=$("fs");if(fs.scrollWidth>fs.clientWidth&&!fs.dataset.c){fs.dataset.c=1;fs.scrollLeft=fs.scrollWidth*fU(L(3e5))-fs.clientWidth/2}};
 /* quiz */
 const LAB={allowed:"Widely read as permitted",banned:"Prohibited",disputed:"Unclear"};
 const COOKIE=`<svg class="cookie" viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="#c98a4b"/><circle cx="20" cy="20" r="17" fill="none" stroke="#a96b30" stroke-width="2"/><circle cx="13" cy="14" r="2.6" fill="#4a2c17"/><circle cx="25" cy="12" r="2.2" fill="#4a2c17"/><circle cx="27" cy="24" r="2.8" fill="#4a2c17"/><circle cx="15" cy="26" r="2.4" fill="#4a2c17"/><circle cx="21" cy="19" r="1.8" fill="#4a2c17"/></svg>`;
@@ -382,7 +405,7 @@ showQ(0);
 fetch("content.txt",{cache:"no-cache"}).then(r=>{if(!r.ok)throw new Error(r.status);return r.text()}).then(t=>{
  const data=build(parse(t));
  if(warns.length){const w=$("warn");w.hidden=false;w.innerHTML="<b>Check content.txt:</b><br>"+warns.map(esc).join("<br>")}
- run(data)}).catch(err=>{const w=$("warn");w.hidden=false;w.textContent="The page could not load content.txt ("+err.message+"). It must sit in the same folder as index.html.";console.error(err)});
+ run(data);go(location.hash.slice(1),true)}).catch(err=>{const w=$("warn");w.hidden=false;w.textContent="The page could not load content.txt ("+err.message+"). It must sit in the same folder as index.html.";console.error(err)});
 }
 </script>
 </body>

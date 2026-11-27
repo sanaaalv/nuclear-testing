@@ -36,8 +36,9 @@ paragraph: Article I of the CTBT states that each State Party "undertakes not to
 photo: castle-bravo.jpg
 photo description: The fireball and layered cloud of the Castle Bravo nuclear test, glowing orange against a dark red sky
 caption: Plate 1. Castle Bravo, 1 March 1954, about 15 megatonnes, nearly three times what its planners estimated. Toned to sepia.
+tab key terms: Key terms
 tab 1: Explore the scale
-tab 2: Test yourself
+tab 2: Test your knowledge
 
 # ---------- THE YIELD SCALE ----------
 SCALE
