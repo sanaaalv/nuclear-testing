@@ -206,7 +206,7 @@ heading: How is each event under the CTBT widely understood?
 intro: Pick how each event is widely understood under the treaty: permitted, prohibited or unclear, and guess whether some statements are true or false. This should give you an idea of the several of ambiguities, technicalities and differing interpretations around what constitutes a prohibited nuclear explosion. Don't worry if you are unsure – that really is the point!
 
 QUESTION
-question: Subcritical experiments with with fissile material
+question: Subcritical experiments with fissile material
 answer: permitted
 explain: Subcritical experiments, which do not produce a self-sustaining fission chain reaction, are permitted. Although, it is worth keeping in mind that many non-nuclear weapon states under the NPT view subcritical experiments as a violation of the spirit, if not letter of the CTBT.
 
