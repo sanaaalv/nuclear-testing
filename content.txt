@@ -203,7 +203,7 @@ text: "What the seismometers see" is the real yield divided by the decoupling fa
 
 QUIZ INTRO
 heading: How is each event under the CTBT widely understood?
-intro: Pick how each event is widely understood under the treaty: permitted, prohibited or unclear, and guess whether some statements are true or false. This should give you an idea of the several of ambiguities, technicalities and differing interpretations around what constitutes a prohibited nuclear explosion. Don't worry if you are unsure – that really is the point!
+intro: Pick how each event is widely understood under the treaty: permitted, prohibited or unclear, and guess whether some statements are true or false. This should give you an idea of the many ambiguities, technicalities and/or differing interpretations around what is and is not permitted under the treaty. Don't worry if you are unsure – that really is the point!
 
 QUESTION
 question: Subcritical experiments with fissile material
@@ -254,6 +254,13 @@ question: Non-nuclear chemical high-explosive experiments in order to better det
 answer: permitted
 explain: It is not a nuclear explosion. In September 2026, the NNSA conducted one such chemical high-explosive experiment at the Nevada National Security Site to improve detection of decoupled explosions.
 
+
+QUESTION
+question: True or false:
+As the 1963 Limited Test Ban Treaty and the 1967 Outer Space Treaty already place legal constraints on the testing of nuclear weapons in outer space, the CTBT does not address nuclear explosions in outer space.
+answer: false
+explain: In order to avoid technical loopholes, the CTBT does not specify the all the environments under which the obligation not to carry out any nuclear weapon test explosion applies. However, under the CTBT, the prohibition on carrying out a nuclear weapon test explosion applies universally, including in outer space. The CTBT is widely regarded as the completion of the task that began with Limited Test Ban Treaty that prohibits nuclear explosions in the atmosphere, in outer space and underwater.
+
 QUESTION
 question: True or false: 
 Hydrodynamic tests that do not produce nuclear yield are prohibited to the non-nuclear-weapon states of the NPT
@@ -270,7 +277,7 @@ QUESTION
 question: True or false: 
 The CTBT establishes a yield threshold that defines a nuclear explosion that would be prohibited under the treaty. 
 answer: false
-explain: Unlike the 150-kt limit in the TTBT, the CTBT does not establish a yield threshold that defines a nuclear explosion that would be prohibited under the treaty. 
+explain: Unlike the 150-kt limit in the Threshold Test Ban Treaty, the CTBT does not establish a yield threshold that defines a nuclear explosion that would be prohibited under the treaty. 
 
 # ---------- FINAL SCORE MESSAGES ----------
 # The page uses the first ending whose "from score" the reader reaches.
