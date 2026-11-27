@@ -208,7 +208,7 @@ intro: Pick how each event is widely understood under the treaty: permitted, pro
 QUESTION
 question: Subcritical experiments with fissile material
 answer: permitted
-explain: Subcritical experiments, which do not produce a self-sustaining fission chain reaction, are permitted. Although, it is worth keeping in mind that some non-nuclear weapon states under the NPT view subcritical experiments as a violation of the spirit, if not letter of the CTBT.
+explain: Subcritical experiments, which do not produce a self-sustaining fission chain reaction, are permitted. However, it is worth keeping in mind that some non-nuclear weapon states under the NPT view subcritical experiments as a violation of the spirit, if not letter of the CTBT.
 
 QUESTION
 question: Hydronuclear tests releasing a few kilograms of TNT equivalent
