@@ -1,0 +1,487 @@
+# ============================================================
+#  CONTENT FILE FOR "WHERE IS THE LINE?"
+#  Everything readers see is written here. Edit freely.
+#
+#  HOW IT WORKS
+#  - Each block starts with a word in CAPITALS on its own line
+#    (PAGE, SCALE, MARKER, TERM, QUESTION, ENDING, SOURCE ...).
+#  - Under it come lines like   label: some text
+#  - Leave one empty line between blocks.
+#  - A long text must stay on ONE line. It can be as long as you like.
+#  - Lines starting with # are notes for you. The page ignores them.
+#
+#  SMALL FORMATTING
+#  - Italics:  *Bulletin of the Atomic Scientists*
+#  - Links:    [link text](https://example.org)
+#
+#  YIELDS (for markers): a number and a unit, e.g.
+#    0.1 mg   200 g   1.8 kg   3 t   500 t   15 kt   50 Mt
+#
+#  TO ADD SOMETHING: copy a whole block (from its CAPITAL word
+#  down to the empty line), paste it where you want it to appear,
+#  and change the words. The order here is the order on the page.
+#  TO REMOVE SOMETHING: delete the whole block.
+#
+#  If something looks wrong after saving, the page shows a
+#  yellow note at the top saying which line it could not read.
+# ============================================================
+
+# ---------- TOP OF THE PAGE ----------
+PAGE
+eyebrow: Preserving the nuclear testing moratorium
+title: What Counts as a Prohibited Nuclear Explosion?
+paragraph: Recent concerns regarding China’s alleged covert nuclear test in 2020 have revived old debates about the effectiveness of the Comprehensive Nuclear-Test-Ban Treaty’s (CTBT) verification regime in detecting low-yield nuclear tests, as well as concerns about the fragility of the norm against testing amid broader developments. Ambiguities around definitions, and what the treaty text permits and prohibits, have complicated the situation further. As the CTBT marks thirty years since it opened for signature, the treaty has still not entered into force, and therefore, its consultations and clarifications and on-site inspection mechanisms remain unavailable. In the current strained geopolitical environment, the question of what can be done to preserve the nuclear testing moratorium is therefore an urgent one, particularly in the absence of the CTBT’s entry-into-force and of additional voluntary confidence-building measures, at a time when the risk of nuclear experiments or activities that may be prohibited being conducted and going undetected, or being misinterpreted, is rising.
+paragraph: Article I of the CTBT states that each State Party "undertakes not to carry out any nuclear weapon test explosion or any other nuclear explosion, and to prohibit and prevent any such nuclear explosion at any place under its jurisdiction or control." Below what yield does an experiment stop being an "explosion", and what can the monitoring network actually see? Try it below.
+photo: castle-bravo.jpg
+photo description: The fireball and layered cloud of the Castle Bravo nuclear test, glowing orange against a dark red sky
+caption: Plate 1. Castle Bravo, 1 March 1954, about 15 megatonnes, nearly three times what its planners estimated. Toned to sepia.
+tab 1: Explore the scale
+tab 2: Test yourself
+
+# ---------- THE YIELD SCALE ----------
+SCALE
+heading: Drag a test along the scale
+intro: Read it like a ruler where every tick is ten times the one before, and the ticks spread further apart as yields grow. There is no zero: the scale runs from a tenth of a milligram to 100 megatonnes, eighteen steps of ten. It is stretched to show how far apart big yields are, but it is still not a true to-scale line. Muffle the test in a cavity, change what the monitoring network can see, and tap any marker for the story behind it.
+note: Simplified. Real detection depends on geology, location and how dense the local network is. The ×70 factor comes from one 1966 test; von Hippel assumes about 10 to 20 for the alleged 2020 event. Real factors depend on cavity size, depth and frequency band. The US ~2 kg margin was a former safety-programme standard, and it is unclear whether it still holds.
+verdict detected: Above the IMS's reported reach. The network would very likely detect and locate an event like this.
+verdict muffled: Muffled below the IMS's reported reach. This is the decoupling problem: a test that should be caught may not be.
+verdict below: Below the IMS's reported reach. Detection is uncertain and unlikely, and attribution would fall to states, often relying on intelligence that cannot be shared.
+verdict far below: Detection is not possible at this size. Any claim would rest on intelligence that cannot be shared.
+
+# ---------- MARKERS ON THE SCALE ----------
+# shape: point, range (needs "up to:"), open range (fades at both ends), or ims (the IMS line)
+# highlight: yes makes a range bold. "short name" is used in the decoupling table.
+
+MARKER
+label: Subcritical
+short name: Subcritical experiment
+title: Subcritical experiment · ~0.1 mg
+yield: 0.1 mg
+shape: point
+text: Nuclear material is squeezed but never reaches a self-sustaining chain reaction. Some fission still happens, but the yield is minuscule. The US says these experiments are permitted.
+
+MARKER
+label: Hydronuclear: an open range, reportedly up to ~1 t
+short name: Hydronuclear (open range)
+title: Hydronuclear experiments · an open range
+yield: 10 g
+up to: 1 t
+shape: open range
+text: There is no agreed start or end point. These experiments cross the self-sustaining threshold. The US definition prohibits any explosion that produces a self-sustaining chain reaction, while senior Russian officials have said permitted experiments might range up to a metric ton.
+
+MARKER
+label: Reported US margin (likely a former standard)
+short name: Reported US margin
+title: Reported US margin of error · ~1.8 kg
+yield: 1.8 kg
+shape: point
+text: In 1993 US policy circles reportedly designated "zero" yield as 1.8 kg of TNT equivalent, tied to the one-point safety standard for warheads, and presented it as a margin for possible error rather than a threshold. Dragon's Tail gives the US historical figure as two kilograms. This was a standard of the US warhead safety programme, and it is unclear whether it still holds today.
+
+MARKER
+label: Reported Russian figure ~100 kg
+short name: Reported Russian figure
+title: Reported Russian figure · ~100 kg
+yield: 100 kg
+shape: point
+text: Dragon's Tail reports that the Soviet Union has considered the hydronuclear energy release region to extend to 100 kg, and that academician Viktor Mikhailov has suggested it could reach one metric ton. It also notes that Russia has never accepted the US definition of a zero-yield test.
+
+MARKER
+label: China alleged (coupled)
+short name: China alleged, if coupled
+title: China's alleged 2020 test, if coupled · ~3 to 15 t
+yield: 3 t
+up to: 15 t
+shape: range
+text: A US official said the test was on 22 June 2020 and measured as magnitude 2.75 at a seismic station near Makanchi, Kazakhstan. Frank von Hippel calculates that, for an ordinary coupled explosion, this implies 3 to 15 tonnes of TNT equivalent.
+
+MARKER
+label: China alleged (decoupled)
+short name: China alleged, if decoupled
+title: China's alleged test, if decoupled · ~30 to 300 t
+yield: 30 t
+up to: 300 t
+shape: range
+highlight: yes
+text: If the device was set off in a cavity, the same signal would imply a larger yield. Von Hippel puts it at 30 to 300 tonnes, assuming a decoupling factor of about 10 to 20. That would still sit below the 500 tonnes the CTBTO gives as the IMS's detection level today.
+
+MARKER
+label: Sterling 1966
+short name: Sterling 1966
+title: Sterling, 1966 · 0.38 kt
+yield: 380 t
+shape: point
+text: A US test in a Mississippi salt cavity, reported as the only one to come close to full decoupling. It looked about 70 times smaller than it was.
+
+MARKER
+label: IMS ~500 t
+title: IMS detection level · ~500 t
+yield: 500 t
+shape: ims
+text: The CTBTO says the IMS was originally designed to detect tests of about 1,000 tonnes of TNT equivalent, and that today its detection goes down to 500 tonnes. It also says it cannot confidently determine the origin of everything the system sees.
+
+MARKER
+label: Hiroshima ~15 kt
+short name: Hiroshima
+title: Hiroshima · ~15 kt
+yield: 15 kt
+shape: point
+text: The bomb dropped on Hiroshima, for scale. The IMS's ~500 t level is just over 3% of it.
+
+MARKER
+label: Nagasaki ~21 kt
+short name: Nagasaki
+title: Nagasaki · ~21 kt
+yield: 21 kt
+shape: point
+text: Later estimated at 21 kilotons, 40 percent greater than the Hiroshima bomb.
+
+MARKER
+label: TTBT cap 150 kt
+short name: TTBT cap
+title: Threshold Test Ban Treaty · 150 kt
+yield: 150 kt
+shape: point
+text: The 1974 US-Soviet cap on underground tests, about ten times Hiroshima. Unlike the TTBT, the CTBT sets no number in Article I.
+
+MARKER
+label: North Korea's last nuclear test
+short name: North Korea's last test
+title: North Korea's last nuclear test, 2017 · est. 140 to 250 kt
+yield: 140 kt
+up to: 250 kt
+shape: range
+text: Its sixth declared test. The Arms Control Association cites an estimated yield of 140 to 250 kt; other published estimates run wider. The CTBTO says the IMS detected all of North Korea's declared tests.
+
+MARKER
+label: Castle Bravo 15 Mt
+short name: Castle Bravo
+title: Castle Bravo, 1954 · ~15 Mt
+yield: 15 Mt
+shape: point
+text: The yield was nearly three times the six megatons its planners estimated, and about 1,000 times Hiroshima. On 2 April 1954, Prime Minister Nehru of India called for an immediate "standstill agreement" on nuclear testing.
+
+MARKER
+label: Tsar Bomba ~50 Mt
+short name: Tsar Bomba
+title: Tsar Bomba, 1961 · ~50 Mt
+yield: 50 Mt
+shape: point
+text: Detonated by the Soviet Union on 30 October 1961, the largest nuclear device ever set off. It yielded approximately 50 megatons, more than 3,000 times Hiroshima.
+
+# ---------- KEY TERMS (the fold-out list under the scale) ----------
+
+TERM
+name: Zero yield
+text: The US definition prohibits all nuclear explosions that produce a self-sustaining chain reaction of any kind. Earlier definitions required that fission energy be less than the chemical energy released by the high explosive. Even by the US reading, zero yield does not mean zero nuclear yield.
+
+TERM
+name: Subcritical experiment
+text: An experiment that does not produce a self-sustaining fission chain reaction. The yield of fission energy is minuscule, comparable to that from the explosion of 0.1 milligrams of TNT.
+
+TERM
+name: Hydrodynamic and hydronuclear experiments
+text: Hydrodynamic experiments involve special nuclear material but no self-sustaining nuclear reaction, and are treated as legal under the CTBT. Hydronuclear experiments cross the self-sustaining threshold, and are prohibited under the US reading. Russia has never accepted the US definition of zero yield.
+
+TERM
+name: Decoupling
+text: Detonating a nuclear device within a large, excavated cavity to dampen the resulting seismic signals. The Sterling test of 1966 is reported as the only one to come close to full decoupling, with a signal about 70 times smaller than a normally coupled test.
+
+TERM
+name: The International Monitoring System (IMS)
+text: The CTBTO's global network of 308 certified facilities. It was originally designed to detect tests of about 1,000 tonnes of TNT equivalent, and today its detection goes down to 500 tonnes. On-site inspections, the treaty's final verification measure, only become available once the treaty enters into force.
+
+TERM
+name: How the readout is calculated
+text: "What the seismometers see" is the real yield divided by the decoupling factor you choose (10, 20 or 70), and the real yield when decoupling is off. It is compared with the IMS level you choose. The Hiroshima comparison divides your yield by 15 kt. On the ruler, a yield's position is ((log10 of the yield in kg + 7.5) / 18.6) squared, which spreads large yields further apart than a plain log scale would.
+
+# ---------- THE QUIZ ----------
+# answer: permitted, prohibited, unclear, true or false.
+# Two accepted answers: "unclear or prohibited".
+# Optional: "explain if permitted:" gives a different explanation when a reader picks that wrong answer.
+# "show verdict: no" hides the bold verdict before the explanation.
+# True/false questions: just use answer: true or answer: false.
+
+QUIZ INTRO
+heading: How is each event under the CTBT widely read?
+intro: Pick how each is widely read under the treaty. This serves to highlight the ongoing ambiguities between what counts as a prohibited nuclear explosion.
+
+QUESTION
+question: A subcritical experiment with plutonium
+answer: permitted
+explain: Subcritical experiments, which do not produce a self-sustaining fission chain reaction, are permitted. The yield of fission energy from one is minuscule.
+
+QUESTION
+question: A hydronuclear experiment releasing a few kilograms of TNT equivalent
+answer: unclear or prohibited
+explain: Depends on whom you ask. The US definition of zero yield prohibits all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind. However, Russia reportedly considered that the release of nuclear energy from permitted experiments might range up to 100 kg of TNT equivalent, unlike the US limit of around 2 kg. This implies that Russia is likely to have a more liberal interpretation of the zero-yield standard, and has never accepted the US definition of the zero-yield standard on technical terms. Reported declarations from Russian officials indicate that testing with yields around 100 kg is not a violation of the hydronuclear regime.
+explain if permitted: Under the US definition of zero yield, to which the CTBT is commonly referred, all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind are prohibited. However, it is worth noting that reported declarations from Russian officials suggest that testing with yields of around 100 kg would not violate the hydronuclear regime.
+show verdict: no
+
+QUESTION
+question: A hydronuclear experiment run inside a large containment vessel in a laboratory
+answer: unclear or prohibited
+explain: Again, depends on whom you ask. In the US interpretation of the zero-yield standard, hydronuclear experiments that briefly produce supercritical nuclear chain reactions are prohibited, irrespective of whether they are conducted in a containment vessel in a laboratory. However, it is worth noting that it is unclear whether Russia views hydronuclear "experiments" as prohibited "explosions."
+show verdict: no
+
+QUESTION
+question: A nuclear test set off in a salt cavity to muffle the signal
+answer: prohibited
+explain: The CTBT prohibits all nuclear test explosions and does not control how they are conducted. A cavity changes only how much of the signal the monitoring network sees.
+
+QUESTION
+question: A "peaceful" nuclear explosion to dig a canal
+answer: prohibited
+explain: The CTBT bans all nuclear explosions, whether for military or peaceful purposes.
+
+QUESTION
+question: Computer simulations of a weapon design
+answer: permitted
+explain: Indonesia formally proposed in 1995 to prohibit any nuclear weapon testing activity, whether explosive or not. The final treaty bans explosions only.
+
+QUESTION
+question: Inertial confinement fusion experiments
+answer: permitted
+explain: The Clinton administration's article-by-article analysis lists "activities not prohibited", which includes examples of activities that are not prohibited by the treaty: hydrodynamic experiments that might involve sub-critical amounts of fissile materials, inertial confinement fusion (ICF) experiments, experiments using pulsed-power facilities and the operation of nuclear power or research reactors.
+
+QUESTION
+question: A 100 kt underground test, below the old TTBT cap of 150 kt
+answer: prohibited
+explain: The 1974 TTBT permitted underground tests up to 150 kt, but underground nuclear testing is prohibited by the CTBT, which bans all nuclear explosions.
+
+QUESTION
+question: A non-nuclear high-explosive blast to calibrate detectors
+answer: permitted
+explain: It is not a nuclear explosion. In September 2026 the NNSA ran a chemical high-explosive experiment with radiotracers in a tunnel at the Nevada National Security Site to improve detection of decoupled explosions.
+
+QUESTION
+question: True or false: hydrodynamic tests that do not produce nuclear yield are prohibited to the non-nuclear-weapon states of the NPT
+answer: true
+explain: These tests are prohibited to non-nuclear-weapon states by the NPT because they relate to a weapons program, which these states are prohibited from conducting.
+
+QUESTION
+question: True or false: all nuclear tests that cannot be detected by the CTBTO's IMS are permitted by default, given the perceived low military or strategic value
+answer: false
+explain: Whether a test can be detected has no bearing on whether it is prohibited. A hydronuclear experiment may fall below what the IMS can see, yet it is prohibited under one reading of zero yield. A decoupled test is hidden from the monitoring network, yet it is prohibited.
+
+QUESTION
+question: True or false: the CTBT sets a yield below which explosions are permitted
+answer: false
+explain: Unlike the 1974 Threshold Test Ban Treaty, which capped underground tests at 150 kilotons, the CTBT sets no permissible yield floor or ceiling.
+
+# ---------- FINAL SCORE MESSAGES ----------
+# The page uses the first ending whose "from score" the reader reaches.
+# cookie: yes adds the little cookie animation.
+
+ENDING
+from score: 10
+cookie: yes
+text: Hurray! You're deep in the know-how of the legal-technical CTBT nitty-gritty. Have a cookie.
+
+ENDING
+from score: 6
+text: Not bad. You understand enough of this to know that challenges facing the nuclear testing moratorium are bleak and opportunities for clarifications and dialogue are too far and few in between.
+
+ENDING
+from score: 0
+text: Great effort! If you're interested in going down a rabbit hole to see what's all this confusion about a treaty that is supposed to ban nuclear tests, plain and simple, please feel free to peruse through the [sources and links](#sources). Happy reading!
+
+# ---------- SOURCES ----------
+SOURCES
+heading: Sources
+used heading: Used on this page
+further heading: Further sources from the paper's preliminary bibliography
+# Each SOURCE below has  list: used  or  list: further
+
+SOURCE
+list: used
+text: Frank von Hippel et al., ["How to Resolve the Trump Administration's Allegation That China Is Engaged in Clandestine Nuclear Testing,"](https://thebulletin.org/2026/02/how-to-resolve-the-trump-administrations-allegation-that-china-is-engaged-in-clandestine-nuclear-testing/) *Bulletin of the Atomic Scientists*, February 2026.
+
+SOURCE
+list: used
+text: Johns Hopkins University Applied Physics Laboratory, ["Dragon's Tail"](https://www.jhuapl.edu/Content/documents/DragonsTail.pdf) (2021), 2 n. 2, 22, 33 n. 120.
+
+SOURCE
+list: used
+text: Rebecca Johnson, [*Unfinished Business: The Negotiation of the CTBT and the End of Nuclear Testing*](https://unidir.org/files/publication/pdfs/unfinished-business-the-negotiation-of-the-ctbt-and-the-end-of-nuclear-testing-346.pdf) (Geneva: UNIDIR, 2009).
+
+SOURCE
+list: used
+text: "The Comprehensive Nuclear-Test-Ban Treaty: New Pressures and Persistent Challenges," *Strategic Comments* 32, no. 4 (2026): v-viii, [https://doi.org/10.1080/13567888.2026.2706352](https://doi.org/10.1080/13567888.2026.2706352).
+
+SOURCE
+list: used
+text: CTBTO, [Statement by the Executive Secretary](https://www.ctbto.org/sites/default/files/2026-09/260831_IDANT_GA_Speech_ES.pdf), 31 August 2026; CTBTO, [Statement to the Conference on Disarmament](https://www.ctbto.org/sites/default/files/2026-02/260223%20CD%20Statement.pdf), 23 February 2026; CTBTO, [CTBT factsheet](https://www.ctbto.org/sites/default/files/2026-07/ctbt_factsheet_e_07_2026.pdf), July 2026.
+
+SOURCE
+list: used
+text: National Security Archive, ["Castle BRAVO at 70: The Worst Nuclear Test in U.S. History"](https://nsarchive.gwu.edu/briefing-book/nuclear-vault/2024-02-29/castle-bravo-70-worst-nuclear-test-us-history) (29 February 2024).
+
+SOURCE
+list: used
+text: National Nuclear Security Administration, ["NNSA Conducts Nonproliferation Experiment to Strengthen America's Nuclear Explosion Detection Capabilities,"](https://www.energy.gov/nnsa/articles/nnsa-conducts-nonproliferation-experiment-strengthen-americas-nuclear-explosion) 30 September 2026.
+
+SOURCE
+list: used
+text: Atomic Heritage Foundation, ["Tsar Bomba."](https://ahf.nuclearmuseum.org/ahf/history/tsar-bomba/)
+
+SOURCE
+list: used
+text: US Department of Energy, Office of Scientific and Technical Information, [Manhattan Project history, Nagasaki](https://www.osti.gov/opennet/manhattan-project-history/Events/1945/nagasaki.htm) (Nagasaki yield, and its comparison with Hiroshima).
+
+SOURCE
+list: used
+text: Arms Control Association, ["Arms Control and Proliferation Profile: North Korea."](https://www.armscontrol.org/factsheets/arms-control-and-proliferation-profile-north-korea)
+
+SOURCE
+list: used
+text: Arms Control Association, ["The Threshold Test Ban Treaty (TTBT) at a Glance"](https://www.armscontrol.org/treaties/threshold-test-ban-treaty) (TTBT cap).
+
+SOURCE
+list: used
+text: National Research Council, *The Comprehensive Nuclear Test Ban Treaty: Technical Issues for the United States* (Washington, DC: National Academies Press, 2012) (Sterling test and the ~70 decoupling factor).
+
+SOURCE
+list: used
+text: Expert interviews conducted by the author, 2026 (the ~250 t upgrade scenario).
+
+SOURCE
+list: used
+text: CTBTO, ["Text of the Treaty"](https://www.ctbto.org/our-mission/the-treaty) (CTBTO Preparatory Commission).
+
+SOURCE
+list: used
+text: Federation of American Scientists, ["Article I: Basic Obligations,"](https://nuke.fas.org/control/ctbt/text/artbyart/art01.htm) Comprehensive Nuclear-Test-Ban Treaty, article-by-article text.
+
+SOURCE
+list: used
+text: Richard L. Garwin, ["The Future of Nuclear Weapons Without Nuclear Testing,"](https://www.armscontrol.org/act/1997-11/features/future-nuclear-weapons-without-nuclear-testing) *Arms Control Today*, November 1997.
+
+SOURCE
+list: further
+text: DiNanno, Thomas. [Remarks at the Conference on Disarmament.](https://geneva.usmission.gov/2026/02/06/u-s-statement-at-the-conference-on-disarmament/) Geneva, 6 February 2026.
+
+SOURCE
+list: further
+text: Yeaw, Christopher. [Remarks at the Conference on Disarmament.](https://geneva.usmission.gov/2026/02/23/statement-by-u-s-assistant-secretary-of-state-for-the-bureau-of-arms-control-and-nonproliferation/) Geneva, 23 February 2026.
+
+SOURCE
+list: further
+text: Floyd, Robert. [Statement by the Executive Secretary of the CTBTO at the Conference on Disarmament.](https://www.ctbto.org/sites/default/files/2026-02/260223%20CD%20Statement.pdf) Geneva, 23 February 2026.
+
+SOURCE
+list: further
+text: US Department of State. ["2020 Adherence to and Compliance with Arms Control, Nonproliferation, and Disarmament Agreements and Commitments."](https://www.state.gov/wp-content/uploads/2020/06/2020-Adherence-to-and-Compliance-with-Arms-Control-Nonproliferation-and-Disarmament-Agreements-and-Commitments-Compliance-Report-1.pdf) June 2020.
+
+SOURCE
+list: further
+text: US Department of State. ["Scope of the Comprehensive Nuclear Test-Ban Treaty."](https://2009-2017.state.gov/t/avc/rls/212166.htm) 28 September 2011.
+
+SOURCE
+list: further
+text: US Mission Geneva. ["CTBT Scope."](https://geneva.usmission.gov/2011/09/28/ctbt-scope/) 28 September 2011.
+
+SOURCE
+list: further
+text: Hruby, Jill. [Remarks at the CTBT Science and Technology Conference 2023.](https://www.energy.gov/nnsa/articles/remarks-nnsa-administrator-jill-hruby-ctbt-science-and-technology-conference-2023) Vienna, 19 June 2023.
+
+SOURCE
+list: further
+text: United Nations. ["Comprehensive Nuclear-Test-Ban Treaty: Historical Overview."](https://legal.un.org/avl/ha/ctbt/ctbt.html)
+
+SOURCE
+list: further
+text: National Research Council. *The Comprehensive Nuclear Test Ban Treaty: Technical Issues for the United States.* Washington, DC: National Academies Press, 2012. Chapters [5](https://www.nationalacademies.org/read/12849/chapter/5#76), [7](https://www.nationalacademies.org/read/12849/chapter/7#98), [8](https://www.nationalacademies.org/read/12849/chapter/8) and [Appendix E](https://www.nationalacademies.org/read/12849/chapter/13).
+
+SOURCE
+list: further
+text: National Research Council. ["Technical Issues Related to the Comprehensive Nuclear Test Ban Treaty"](https://www.armscontrol.org/act/2002-09/technical-issues-related-comprehensive-nuclear-test-ban) [2002 Executive Summary]. *Arms Control Today*, September 2002.
+
+SOURCE
+list: further
+text: de Troullioud de Lanversin, Julien, Christopher Fichtlscherer, and Frank N. von Hippel. ["Reducing Tensions Over Nuclear Testing at Very Low Yield."](https://www.jstor.org/stable/27272870) *Arms Control Today* 53, no. 9 (November 2023): 12-16.
+
+SOURCE
+list: further
+text: International Group on Global Security (Clingendael). [*A New Look at the Comprehensive Nuclear-Test-Ban Treaty.*](https://nonproliferation.eu/wp-content/uploads/2018/09/internationalgrouponglobalsecurity4ecd11e1d5c7c.pdf) The Hague: Netherlands Institute of International Relations, 2008.
+
+SOURCE
+list: further
+text: Mallin, Maurice A. *The Comprehensive Nuclear-Test-Ban Treaty Negotiations: A Case Study.* Case Study Series 7. Washington, DC: National Defense University, Center for the Study of Weapons of Mass Destruction.
+
+SOURCE
+list: further
+text: Jones, Suzanne L., and Frank N. von Hippel. "Transparency Measures for Subcritical Experiments Under the CTBT." *Science & Global Security* 6 (1997): 291-310.
+
+SOURCE
+list: further
+text: von Hippel, Frank N. ["Protecting the Global Nuclear Test Moratorium."](https://physicistscoalition.org/wp-content/uploads/2023/08/Benefits-of-not-testing-FvH-25Aug2023.pdf) Physicists Coalition for Nuclear Risk Reduction, August 2023.
+
+SOURCE
+list: further
+text: von Hippel, Frank N. ["Subcritical Experiments."](https://thebulletin.org/2012/12/subcritical-experiments/) *Bulletin of the Atomic Scientists*, December 2012.
+
+SOURCE
+list: further
+text: von Hippel, Frank N. ["Transparency for Nuclear Weapons Test Sites."](https://physicstoday.aip.org/letters/commentary-transparency-for-nuclear-weapons-test-sites) *Physics Today*, October 2020.
+
+SOURCE
+list: further
+text: Persbo, Andreas. ["Will the Trump Administration's Accusations Doom the Nuclear Test Ban Treaty?"](https://thebulletin.org/2020/05/will-the-trump-administrations-accusations-doom-the-nuclear-test-ban-treaty/) *Bulletin of the Atomic Scientists*, 18 May 2020.
+
+SOURCE
+list: further
+text: Hecker, Siegfried S. ["Lessons From Los Alamos."](https://www.foreignaffairs.com/united-states/lessons-alamos) *Foreign Affairs*, 26 November 2025.
+
+SOURCE
+list: further
+text: Broad, William J. ["The Forgotten Nuclear Weapon Tests That Trump May Seek to Revive."](https://www.nytimes.com/2025/11/24/science/hydro-nuclear-testing-trump.html) *New York Times*, 24 November 2025.
+
+SOURCE
+list: further
+text: Kimball, Daryl G. ["Trump's Nuclear Test Rhetoric and Reality."](https://www.armscontrol.org/act/2025-12/focus/trumps-nuclear-test-rhetoric-and-reality) *Arms Control Today*, December 2025.
+
+SOURCE
+list: further
+text: Kimball, Daryl G. ["US Accuses China of Nuclear Test, Preparations."](https://www.armscontrol.org/act/2026-03/news/us-accuses-china-nuclear-test-preparations) *Arms Control Today*, March 2026.
+
+SOURCE
+list: further
+text: Kimball, Daryl G. ["Two Nuclear Wrongs Don't Make a Right."](https://www.armscontrol.org/act/2026-05/news/two-nuclear-wrongs-dont-make-right) *Arms Control Today*, May 2026.
+
+SOURCE
+list: further
+text: Kimball, Daryl G. ["US Conducts 34th Subcritical Nuclear Experiment."](https://www.armscontrol.org/act/2024-06/news/us-conducts-34th-subcritical-nuclear-experiment) *Arms Control Today*, June 2024.
+
+SOURCE
+list: further
+text: Arms Control Association. ["US Questions Russian CTBT Compliance."](https://www.armscontrol.org/act/2019-07/news/us-questions-russian-ctbt-compliance) *Arms Control Today*, July 2019.
+
+SOURCE
+list: further
+text: Arms Control Association. ["US Claims of Illegal Russian Nuclear Testing: Myths, Realities, and Next Steps."](https://www.armscontrol.org/policy-white-papers/2019-08/us-claims-illegal-russian-nuclear-testing-myths-realities-next-steps) August 2019.
+
+SOURCE
+list: further
+text: Arms Control Association. ["A Response to Claims of Illegal Russian Nuclear Testing."](https://www.armscontrol.org/pressroom/2019-05/response-claims-illegal-russian-nuclear-testing) 29 May 2019.
+
+SOURCE
+list: further
+text: Graham, Thomas, Jr. ["The Once and Future Threat of Nuclear Weapon Testing."](https://www.justsecurity.org/66020/the-once-and-future-threat-of-nuclear-weapon-testing/) *Just Security*, August 2019.
+
+SOURCE
+list: further
+text: Lewis, Jeffrey. ["Subcritical Experiments."](https://www.armscontrolwonk.com/archive/206011/subcritical-experiments/) *Arms Control Wonk*, December 2012.
+
+SOURCE
+list: further
+text: Acronym Institute. ["The CTBT: Article-by-Article Analysis and Key Provisions."](https://www.acronym.org.uk/old/archive/a10obj.htm)
+
+SOURCE
+list: further
+text: Union of Concerned Scientists. ["FY12 Stockpile Stewardship and Management Plan."](https://blog.ucs.org/syoung/fy12ssmppost3/)
+
+SOURCES NOTE
+text: The second list comes from the preliminary bibliography in the research proposal, plus papers that fed this page. Sources for the 2026 Review Conference are not listed here.
+
+SOURCES NOTE
+text: All figures are approximate TNT-equivalent values. Where a point is a reported reading, the page says so.

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where Is the Line?</title>
+<!-- This file is the machinery. To change any words, edit content.txt instead. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* VOICE calm, plain, a little curious. Reported readings, never verdicts
+   IDEA a yield scale with a draggable test pin, an honest straight-scale strip, then a sorting quiz
+   COLOUR warm paper, soft ink, flat pastel accents (apricot, rose, sage, sky)
+   TYPE Newsreader for headings, Inter for text
+   LAYOUT one quiet column, generous space, no borders or shadows, flat shapes */
+:root{color-scheme:light;
+ --bg:#f4ecda;--ink:#2b241b;--mute:#78695a;--soft:#ebe0c9;--soft2:#e1d3b5;
+ --apricot:#e68a52;--rose:#d4655c;--sage:#6f9a80;--sky:#4f7fae;--sand:#d9b45a}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:clip}
+.band{padding-block:clamp(28px,5vw,64px);padding-inline:max(5vw,18px)}
+.wrap{max-width:1040px;margin:0 auto}
+.narrow{max-width:700px;margin:0 auto;text-align:left}
+.narrow p,.lede,.card p,.fb p,.note,.src li,.foot .small,figcaption{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+h1,h2,h3{font-family:Newsreader,Georgia,serif;font-weight:500;letter-spacing:-.01em;margin:0}
+h1{font-size:clamp(38px,6vw,64px);line-height:1.02;text-wrap:balance}
+h2{font-size:clamp(28px,3.6vw,38px);line-height:1.1;margin-bottom:10px;text-wrap:balance}
+.eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--apricot);font-weight:600;margin:0 0 14px}
+.intro p{font-size:18px;margin:0 0 16px}
+.intro .lead{font-family:Newsreader,Georgia,serif;font-size:clamp(21px,2.4vw,26px);line-height:1.35;color:var(--ink);margin-top:26px}
+figure{margin:0 auto;max-width:640px}
+figure img{display:block;width:100%;height:auto;border-radius:0;filter:sepia(.5) saturate(.85) contrast(1.03);border:1px solid var(--soft2)}
+figcaption{font-size:14px;color:var(--mute);margin-top:10px}
+.lede{max-width:64ch;color:var(--mute);margin:0 0 22px;font-size:17px}
+.panel{background:var(--soft);border-radius:26px;padding:clamp(18px,3vw,34px)}
+.figscroll{overflow-x:auto;overscroll-behavior-x:contain}
+.fig{position:relative;height:340px;min-width:980px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.swipe{display:none;font-size:14px;color:var(--mute);margin:4px 0 0}
+svg text{font:500 12.5px Inter,sans-serif;paint-order:stroke;stroke:var(--soft);stroke-width:4px;stroke-linejoin:round}
+svg .tk{font-size:11.5px;fill:var(--mute)}
+.mk{cursor:pointer}
+.mk:focus{outline:none}
+.mk:focus-visible text{text-decoration:underline}
+.ctl{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:flex-end;margin-top:20px}
+.ctl label,.small{font-size:14px;color:var(--mute)}
+.ctl label{font-size:17px}
+.ctl label b{color:var(--ink);font-weight:600}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:56px;background:none;margin:0;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:10px;border-radius:5px;background:var(--soft2)}
+input[type=range]::-moz-range-track{height:10px;border-radius:5px;background:var(--soft2)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:32px;height:32px;border-radius:50%;background:var(--ink);border:5px solid var(--soft);margin-top:-11px;box-shadow:0 0 0 1px var(--ink)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--ink);border:4px solid var(--soft);box-shadow:0 0 0 1px var(--ink)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--apricot);outline-offset:3px}
+.seg{display:inline-flex;border-radius:999px;background:var(--soft2);padding:4px;gap:2px}
+.seg button{font:500 14.5px Inter,sans-serif;border:0;background:none;color:var(--ink);padding:9px 16px;min-height:42px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.chip{font:500 14.5px Inter,sans-serif;border:0;background:var(--soft2);color:var(--ink);border-radius:999px;padding:9px 16px;min-height:42px;cursor:pointer}
+.chip:hover{background:color-mix(in srgb,var(--apricot) 28%,var(--soft2))}
+.track{position:relative;height:36px;margin:-6px 0 0;--tw:32px}
+.band-cn{position:absolute;top:0;height:10px;border:0;border-radius:5px;background:var(--apricot);cursor:pointer;padding:0;min-width:0}
+.band-cn::after{content:"";position:absolute;inset:-18px -6px}
+.band-lab{position:absolute;top:14px;font-size:13px;font-weight:600;white-space:nowrap;transform:translateX(-100%)}
+.two{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;margin-top:26px;align-items:start}
+.card{background:var(--bg);border-radius:20px;padding:22px 26px;min-height:120px}
+.card h3{font-size:22px;margin:0 0 6px}
+.card p{margin:0}
+.read{background:var(--bg);border-radius:20px;padding:22px 26px}
+.big{font-family:Newsreader,Georgia,serif;font-weight:500;font-size:clamp(38px,5vw,56px);line-height:1.05;white-space:nowrap}
+.row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--soft2)}
+.row b{white-space:nowrap;font-weight:600}
+.verdict{margin-top:14px;font-weight:500;padding:12px 14px;border-radius:14px;background:color-mix(in srgb,var(--rose) 16%,var(--bg))}
+.verdict.seen{background:color-mix(in srgb,var(--sage) 20%,var(--bg))}
+.note{font-size:14px;color:var(--mute);margin:14px 0 0}
+.game{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:stretch}
+.tabs{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;justify-content:center;gap:8px;padding:12px 5vw;border-block:1px solid var(--soft2)}
+.tabs button{font:500 16px Inter,sans-serif;border:0;background:none;color:var(--mute);padding:10px 22px;min-height:44px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--ink);color:var(--bg)}
+.acc{margin-top:30px}
+.acc h3{font-size:24px;margin-bottom:6px}
+.acc details{background:var(--bg);border-radius:16px;padding:4px 20px;margin-top:10px}
+.acc summary{cursor:pointer;font:500 17px Inter,sans-serif;padding:12px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";color:var(--apricot);font-size:22px;line-height:1}
+.acc details[open] summary::after{content:"\2212"}
+.dt{overflow-x:auto;margin:0 0 14px}.dt table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}.dt th,.dt td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--soft2);white-space:nowrap}.dt th{font-weight:600;color:var(--mute)}.dt p{margin:10px 0 0;font-size:14px;color:var(--mute)}
+.acc details p{margin:0 0 14px;text-align:justify;hyphens:auto}
+.cookie{vertical-align:middle;margin-left:6px;animation:cookie 3.2s ease-in-out forwards;opacity:0}
+@keyframes cookie{0%{opacity:0;transform:scale(.2) rotate(-40deg)}15%{opacity:1;transform:scale(1.25) rotate(10deg)}30%{transform:scale(1) rotate(-6deg)}70%{opacity:1;transform:scale(1) rotate(6deg)}100%{opacity:0;transform:scale(.4) translateY(-14px)}}
+@media(prefers-reduced-motion:reduce){.cookie{animation:none;opacity:1}}
+.final{text-align:center;font:500 22px/1.4 Newsreader,Georgia,serif;margin:22px auto 0;max-width:640px}
+.qnav{display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap}
+.qnav button{font:500 15px Inter,sans-serif;border:0;border-radius:999px;background:var(--soft2);color:var(--ink);padding:10px 20px;min-height:44px;cursor:pointer}
+.qnav button:disabled{opacity:.4;cursor:default}
+.qnav button:not(:disabled):hover{background:color-mix(in srgb,var(--apricot) 28%,var(--soft2))}
+details.srcs{max-width:820px;margin:0 auto}
+details.srcs summary{cursor:pointer;font:500 26px Newsreader,Georgia,serif;list-style:none;text-align:center;padding:6px 0}
+details.srcs summary::-webkit-details-marker{display:none}
+details.srcs summary::after{content:" +";color:var(--apricot)}
+details.srcs[open] summary::after{content:" \2212"}
+.srcs h3{font-size:19px;margin:22px 0 8px;max-width:820px;margin-inline:auto}
+.srcs ol{margin-inline:auto}
+.q{background:var(--soft);border-radius:26px;padding:28px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between}
+.q .n{font-size:14px;color:var(--mute);font-weight:500}
+.q .t{font:500 clamp(23px,2.7vw,30px)/1.2 Newsreader,Georgia,serif;margin:10px 0 22px}
+.ans{display:flex;flex-wrap:wrap;gap:10px}
+.ans button{flex:1 1 110px;font:600 15px Inter,sans-serif;min-height:48px;border-radius:999px;border:0;cursor:pointer;color:var(--ink)}
+.ans .allowed{background:color-mix(in srgb,var(--sage) 38%,var(--soft))}
+.ans .banned{background:color-mix(in srgb,var(--rose) 34%,var(--soft))}
+.ans .disputed{background:color-mix(in srgb,var(--sand) 42%,var(--soft))}
+.ans .true_{background:color-mix(in srgb,var(--sky) 34%,var(--soft))}
+.ans .false_{background:color-mix(in srgb,var(--apricot) 34%,var(--soft))}
+.ans button:disabled{opacity:.4;cursor:default}
+.ans button.picked{opacity:1;box-shadow:0 0 0 2px var(--ink)}
+.fb{border-radius:26px;background:var(--soft);padding:28px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between}
+.fb h3{margin:0 0 8px;font-size:26px}
+.fb p{margin:0}
+.fb .next{margin-top:16px}
+.score{font:500 20px Newsreader,serif;margin-top:14px}
+.src{font-size:14px;color:var(--mute);padding-left:22px;max-width:820px}
+.src li{margin-bottom:8px}
+a{color:var(--sky)}
+.foot{background:var(--soft)}
+.foot h2{font-size:26px}
+@media(max-width:760px){.two,.game{grid-template-columns:minmax(0,1fr)}.swipe{display:block}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.warn{background:#fff2b3;color:#3a2e00;padding:12px max(5vw,18px);font-size:15px;border-bottom:1px solid #e3c94a}
+</style>
+</head>
+<body>
+<div class="warn" id="warn" hidden></div>
+<header class="band">
+  <div class="wrap">
+    <div class="narrow intro">
+      <p class="eyebrow" id="eyebrow"></p>
+      <h1 id="title"></h1>
+      <div id="paras" style="margin-top:26px"></div>
+    </div>
+    <figure style="margin-top:34px" id="fig">
+      <img id="photo" alt="" width="1484" height="779">
+      <figcaption id="caption"></figcaption>
+    </figure>
+  </div>
+</header>
+
+<div class="tabs" role="tablist" aria-label="Sections"><button role="tab" id="t1" aria-selected="true" aria-controls="tab-explore"></button><button role="tab" id="t2" aria-selected="false" aria-controls="tab-quiz"></button></div>
+
+<section class="band" id="tab-explore" role="tabpanel" aria-label="Yield explorer" style="padding-top:clamp(24px,4vw,44px)">
+  <div class="wrap">
+    <div class="panel">
+      <h2 id="sHead"></h2>
+      <p class="lede" style="margin-bottom:12px" id="sIntro"></p>
+      <div class="figscroll" id="fs"><div class="fig" id="figbox"><svg id="ruler" role="img" aria-label="Log-scale yield ruler"></svg></div></div>
+      <p class="swipe">Swipe the scale sideways to see it all.</p>
+      <div class="ctl" style="align-items:flex-start">
+        <div style="flex:1 1 460px">
+          <label for="yield">Test yield (TNT equivalent): <b id="ylab"></b></label>
+          <input type="range" id="yield" min="0" max="1" step="0.0005" value="0.5">
+          <div style="margin-top:14px">
+            <div class="small" style="margin-bottom:6px">Cavity decoupling factor</div>
+            <div class="seg" role="group" aria-label="Decoupling"><button id="dc0" aria-pressed="true">Off</button><button id="dc1" aria-pressed="false">×10</button><button id="dc2" aria-pressed="false">×20</button><button id="dc3" aria-pressed="false">×70 (Sterling)</button></div>
+          </div>
+        </div>
+        <div>
+          <div class="small" style="margin-bottom:6px">IMS sensitivity</div>
+          <div class="seg" role="group" aria-label="IMS sensitivity"><button id="th0" aria-pressed="true">Today ~500 t</button><button id="th1" aria-pressed="false">If upgraded to ~250 t</button></div>
+        </div>
+      </div>
+      <div class="two">
+        <div>
+          <div class="card" id="card" aria-live="polite"></div>
+          <p class="note" id="sNote"></p>
+        </div>
+        <div class="read" aria-live="polite">
+          <div class="small">Real yield</div>
+          <div class="big" id="real"></div>
+          <div class="row"><span>What the seismometers "see"</span><b id="app"></b></div>
+          <div class="row"><span>Reported IMS threshold</span><b id="thr"></b></div>
+          <div class="row"><span>Compared with Hiroshima (~15 kt)</span><b id="hir"></b></div>
+          <div class="verdict" id="verdict"></div>
+        </div>
+      </div>
+      <div class="acc">
+        <h3>Key terms</h3>
+        <div id="terms"></div>
+        <details><summary>Every value, if decoupled (×10 to ×20)</summary><div id="dtab"></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="tab-quiz" role="tabpanel" aria-labelledby="t2" hidden>
+  <div class="wrap">
+    <div class="qhead">
+      <h2 id="qHead"></h2>
+      <p class="lede" style="margin-bottom:26px" id="qIntro"></p>
+    </div>
+    <div class="game">
+      <div class="q">
+        <div><div class="n" id="qn"></div><div class="t" id="qt"></div></div>
+        <div class="ans" id="ans"></div>
+      </div>
+      <div class="fb" id="fb" aria-live="polite"></div>
+    </div>
+    <div class="qnav"><button id="prev">&larr; Previous question</button><button id="nx">Next &rarr;</button></div>
+    <p class="final" id="final" hidden></p>
+  </div>
+</section>
+
+<section class="band foot">
+  <div class="wrap">
+    <details class="srcs" id="srcs"><summary id="srcHead">Sources</summary>
+      <h3 id="usedHead"></h3><ol class="src" id="srcUsed"></ol>
+      <h3 id="furtherHead"></h3><ol class="src" id="srcFurther"></ol>
+      <div id="srcNotes"></div>
+    </details>
+  </div>
+</section>
+
+<script>
+{
+const $=id=>document.getElementById(id);
+const L=Math.log10;
+const KEYS=["eyebrow","title","paragraph","photo","photo description","caption","tab 1","tab 2","heading","intro","note","verdict detected","verdict muffled","verdict below","verdict far below","label","short name","yield","up to","shape","highlight","text","name","question","answer","explain","explain if permitted","explain if prohibited","explain if unclear","explain if true","explain if false","show verdict","from score","cookie","used heading","further heading","list"];
+const warns=[];
+function parse(t){const B=[];let cur=null,last=null;
+ t.split(/\r?\n/).forEach((raw,i)=>{const s=raw.trim();if(!s||s.startsWith("#"))return;
+  if(/^[A-Z][A-Z ]*$/.test(s)){cur={type:s,f:{},line:i+1};B.push(cur);last=null;return}
+  const m=s.match(/^([A-Za-z0-9 ]+?)\s*:\s*(.*)$/),k=m&&m[1].toLowerCase();
+  if(cur&&m&&KEYS.includes(k)){(cur.f[k]=cur.f[k]||[]).push(m[2]);last=[k,cur.f[k].length-1];return}
+  if(cur&&last){cur.f[last[0]][last[1]]+=" "+s;return}
+  warns.push(`Line ${i+1} is outside any block: "${s.slice(0,60)}"`)});
+ return B}
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const rich=s=>esc(s).replace(/\[([^\]]+)\]\(((?:https?:\/\/|#)[^)\s]+)\)/g,(m,t,u)=>`<a href="${u}"${u[0]==="#"?' data-in="1"':""}>${t}</a>`).replace(/\*([^*]+)\*/g,"<i>$1</i>");
+const UN={mg:1e-6,g:1e-3,kg:1,t:1e3,tonne:1e3,tonnes:1e3,kt:1e6,kilotonne:1e6,kilotonnes:1e6,kiloton:1e6,kilotons:1e6,mt:1e9,megatonne:1e9,megatonnes:1e9,megaton:1e9,megatons:1e9};
+function yld(s,line){const m=String(s||"").trim().match(/^([\d.,]+)\s*([A-Za-z]+)$/);const u=m&&UN[m[2].toLowerCase()];
+ if(!u||(m[2]==="mg"?false:false)){warns.push(`Block starting on line ${line}: could not read the yield "${s}". Use a number and a unit, like 15 kt.`);return null}
+ return parseFloat(m[1].replace(/,/g,""))*u}
+const one=(b,k,d="")=>b&&b.f[k]?b.f[k][0]:d;
+const all=(b,k)=>b&&b.f[k]?b.f[k]:[];
+
+function build(B){
+ const get=t=>B.filter(b=>b.type===t),P=get("PAGE")[0],S=get("SCALE")[0],QI=get("QUIZ INTRO")[0],SR=get("SOURCES")[0];
+ document.title=one(P,"title","Where Is the Line?");
+ $("eyebrow").innerHTML=rich(one(P,"eyebrow"));$("title").innerHTML=rich(one(P,"title"));
+ $("paras").innerHTML=all(P,"paragraph").map(p=>`<p>${rich(p)}</p>`).join("");
+ const ph=one(P,"photo");if(ph&&/^[\w.\-\/]+$/.test(ph)){$("photo").src=ph;$("photo").alt=one(P,"photo description");$("caption").innerHTML=rich(one(P,"caption"))}else $("fig").hidden=true;
+ $("t1").textContent=one(P,"tab 1","Explore the scale");$("t2").textContent=one(P,"tab 2","Test yourself");
+ $("sHead").innerHTML=rich(one(S,"heading"));$("sIntro").innerHTML=rich(one(S,"intro"));$("sNote").innerHTML=rich(one(S,"note"));
+ const V={seen:one(S,"verdict detected"),muff:one(S,"verdict muffled"),below:one(S,"verdict below"),far:one(S,"verdict far below")};
+ const SH={"point":"dot","range":"range","open range":"open","ims":"ims"};
+ const M=get("MARKER").map((b,i)=>{const v=yld(one(b,"yield"),b.line);if(v==null)return null;const up=one(b,"up to");const v2=up?yld(up,b.line):null;
+  const k=SH[one(b,"shape","point").toLowerCase()]||"dot";
+  return{id:"m"+i,v,v2:v2||undefined,k:(k==="range"||k==="open")&&!v2?"dot":k,lab:one(b,"label"),short:one(b,"short name",one(b,"label")),title:one(b,"title",one(b,"label")),txt:one(b,"text"),hot:/^y/i.test(one(b,"highlight"))}}).filter(Boolean);
+ $("terms").innerHTML=get("TERM").map(b=>`<details><summary>${rich(one(b,"name"))}</summary><p>${rich(one(b,"text"))}</p></details>`).join("");
+ $("qHead").innerHTML=rich(one(QI,"heading"));$("qIntro").innerHTML=rich(one(QI,"intro"));
+ const WD={permitted:"allowed",prohibited:"banned",unclear:"disputed",true:"true",false:"false"};
+ const Q=get("QUESTION").map(b=>{const a=one(b,"answer").toLowerCase().split(/\s+or\s+/).map(x=>WD[x.trim()]).filter(Boolean);
+  if(!a.length){warns.push(`Block starting on line ${b.line}: the answer must be permitted, prohibited, unclear, true or false.`);return null}
+  const tf=a[0]==="true"||a[0]==="false",cu={};["permitted","prohibited","unclear","true","false"].forEach(w=>{const x=one(b,"explain if "+w);if(x)cu[WD[w]]=x});
+  return{q:one(b,"question"),a,ex:one(b,"explain"),tf,cu,noV:/^n/i.test(one(b,"show verdict"))}}).filter(Boolean);
+ const EN=get("ENDING").map(b=>({min:+one(b,"from score","0")||0,cookie:/^y/i.test(one(b,"cookie")),txt:one(b,"text")})).sort((a,b)=>b.min-a.min);
+ $("srcHead").textContent=one(SR,"heading","Sources");$("usedHead").textContent=one(SR,"used heading");$("furtherHead").textContent=one(SR,"further heading");
+ const src=g=>get("SOURCE").filter(b=>one(b,"list","used").toLowerCase()===g).map(b=>`<li>${rich(one(b,"text"))}</li>`).join("");
+ $("srcUsed").innerHTML=src("used");$("srcFurther").innerHTML=src("further");
+ $("srcNotes").innerHTML=get("SOURCES NOTE").map(b=>`<p class="small" style="max-width:820px;margin-inline:auto;margin-top:14px">${rich(one(b,"text"))}</p>`).join("");
+ document.addEventListener("click",e=>{const a=e.target.closest("a[data-in]");if(!a)return;e.preventDefault();const d=$("srcs");d.open=true;d.scrollIntoView({behavior:"smooth"})});
+ return{M,Q,EN,V}}
+
+function run({M,Q,EN,V}){
+const byId=id=>M.find(m=>m.id===id);
+const LO=-7.5,HI=11.1,SMIN=-7,SMAX=10.7,PW=2;
+const fU=l=>Math.pow((l-LO)/(HI-LO),PW),invU=u=>LO+Math.pow(u,1/PW)*(HI-LO),UMIN=fU(SMIN),UMAX=fU(SMAX);
+const st={y:4,f:1,th:500000};
+const fmt=kg=>{const a=[[1e9,"Mt"],[1e6,"kt"],[1e3,"t"],[1,"kg"],[1e-3,"g"],[1e-6,"mg"]];for(const[u,s]of a)if(kg>=u*0.999){const n=kg/u;return(n>=100?Math.round(n):n>=10?n.toFixed(0):n.toFixed(n<1?2:1).replace(/\.0$/,""))+" "+s}return(kg/1e-6).toFixed(2).replace(/0$/,"")+" mg"};
+const svg=$("ruler"),box=$("figbox");
+const EMPTY="<h3>Tap any marker on the scale</h3><p>Each one explains a term from the debate in plain language. Drag the slider onto a marker and its explanation appears here.</p>";
+function show(m){if(m)$("card").innerHTML=`<h3>${rich(m.title)}</h3><p>${rich(m.txt)}</p>`}
+$("card").innerHTML=EMPTY;
+function draw(){
+ const W=svg.clientWidth,H=svg.clientHeight,pad=24,x=v=>pad+fU(L(v))*(W-2*pad),base=H-98;if(!W)return;
+ let s=`<defs><linearGradient id="gh" x1="0" x2="1"><stop offset="0" stop-color="var(--apricot)" stop-opacity="0"/><stop offset=".3" stop-color="var(--apricot)" stop-opacity=".85"/><stop offset=".7" stop-color="var(--apricot)" stop-opacity=".85"/><stop offset="1" stop-color="var(--apricot)" stop-opacity="0"/></linearGradient></defs>`;
+ const thr=st.th,yv=10**st.y,app=yv/st.f;
+ const units=[[-7.5,-6,"micrograms"],[-6,-3,"milligrams"],[-3,0,"grams"],[0,3,"kilograms"],[3,6,"tonnes"],[6,9,"kilotonnes"],[9,11.1,"megatonnes"]];
+ units.forEach((u,i)=>{const x0=x(10**u[0]),x1=x(10**u[1]);
+  if(i%2===0)s+=`<rect x="${x0}" y="0" width="${x1-x0}" height="${base+66}" rx="10" fill="var(--ink)" opacity=".045"/>`;
+  if(x1-x0>=70)s+=`<text x="${(x0+x1)/2}" y="${base+84}" text-anchor="middle" class="tk" style="font-weight:600;letter-spacing:.04em">${u[2]}</text>`});
+ s+=`<rect x="${pad}" y="${base-11}" width="${x(thr)-pad}" height="22" rx="11" fill="var(--rose)" opacity=".2"/>`;
+ s+=`<rect x="${x(thr)}" y="${base-11}" width="${W-pad-x(thr)}" height="22" rx="11" fill="var(--sage)" opacity=".25"/>`;
+ s+=`<line x1="${pad}" x2="${W-pad}" y1="${base}" y2="${base}" stroke="var(--ink)" stroke-width="1.5" opacity=".7"/>`;
+ let lastT=-99;for(let p=-7;p<=11;p++){const tx=x(10**p);const showT=tx-lastT>=46;if(showT)lastT=tx;s+=`<line x1="${tx}" x2="${tx}" y1="${base+11}" y2="${base+18}" stroke="var(--mute)"/>${showT?`<text x="${tx}" y="${base+36}" text-anchor="middle" class="tk">${p===-7?"0.1 mg":fmt(10**p)}</text>`:""}`}
+ s+=`<text x="${pad+6}" y="${base+56}" class="tk" style="fill:var(--rose);font-weight:600">Below the IMS's reported reach</text><text x="${W-pad-6}" y="${base+56}" text-anchor="end" class="tk" style="fill:var(--sage);font-weight:600">Within reach</text>`;
+ s+=`<line x1="${x(thr)}" x2="${x(thr)}" y1="14" y2="${base+11}" stroke="var(--rose)" stroke-width="2"/>`;
+ const ims=M.find(m=>m.k==="ims");
+ s+=`<g class="mk" tabindex="0" role="button" aria-label="IMS sensitivity"${ims?` data-id="${ims.id}"`:""}><text x="${x(thr)+8}" y="26" style="fill:var(--rose);font-weight:600">IMS ~${fmt(thr)}</text></g>`;
+ const items=M.filter(m=>m.k!=="ims").map(m=>{const a=x(m.v),b=m.v2?x(m.v2):a,mx=(a+b)/2,w=m.lab.length*6.3+10;return{m,a,b,mx,w,l:Math.max(pad,Math.min(W-pad-w,mx-w/2))}}).sort((p,q)=>p.mx-q.mx);
+ const ends=[];const rowH=29,top=base-34;
+ items.forEach(it=>{let r=0;while(ends[r]!==undefined&&ends[r]+10>it.l)r++;ends[r]=it.l+it.w;it.r=r});
+ items.forEach(it=>{const m=it.m,y=top-it.r*rowH,hot=m.hot;
+  s+=`<g class="mk" tabindex="0" role="button" aria-label="${esc(m.title)}" data-id="${m.id}">`;
+  s+=`<line x1="${it.mx}" x2="${it.mx}" y1="${y+6}" y2="${base}" stroke="var(--mute)" stroke-width="1" opacity=".7"/>`;
+  if(m.k==="open")s+=`<rect x="${it.a}" y="${base-6}" width="${it.b-it.a}" height="12" rx="6" fill="url(#gh)"/>`;
+  else if(m.k==="range")s+=`<rect x="${it.a}" y="${base-6}" width="${it.b-it.a}" height="12" rx="6" fill="var(--apricot)" opacity="${hot?1:.55}"${hot?' stroke="var(--ink)" stroke-width="1.5"':''}/>`;
+  else s+=`<circle cx="${it.mx}" cy="${base}" r="5" fill="var(--apricot)" stroke="var(--soft)" stroke-width="2"/>`;
+  s+=`<text x="${it.l}" y="${y}"${hot?' style="font-weight:700"':''} fill="var(--ink)">${esc(m.lab)}</text></g>`});
+ const px=x(yv),ax=x(app);
+ if(st.f>1)s+=`<line x1="${px}" x2="${ax+9}" y1="${base}" y2="${base}" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="4 3"/><circle cx="${ax}" cy="${base}" r="9" fill="none" stroke="var(--ink)" stroke-width="2" stroke-dasharray="3 2"/>`;
+ s+=`<path d="M${px} ${base-11} l-8 -14 h16z" fill="var(--ink)"/><circle cx="${px}" cy="${base}" r="8" fill="var(--ink)" stroke="var(--soft)" stroke-width="3"/>`;
+ svg.innerHTML=s;
+}
+const ro=new ResizeObserver(()=>draw());ro.observe(box);
+svg.addEventListener("click",e=>{const g=e.target.closest(".mk");if(g&&g.dataset.id)show(byId(g.dataset.id))});
+svg.addEventListener("keydown",e=>{const g=e.target.closest(".mk");if(g&&g.dataset.id&&(e.key==="Enter"||e.key===" ")){e.preventDefault();show(byId(g.dataset.id))}});
+function buildTable(){
+ const thr=st.th,A=(a,b)=>b?fmt(a)+" to "+fmt(b):fmt(a);
+ const rows=M.filter(m=>m.k!=="ims").map(m=>{const a=m.v,b=m.v2||m.v;
+  const st10=m.v2?A(a/10,b/10):fmt(a/10),st20=m.v2?A(a/20,b/20):fmt(a/20);
+  const v2=b/20>=thr&&a/10<thr?"Depends on the factor":(b/10<thr?"Hidden":(a/20>=thr?"Seen":"Depends on the factor"));
+  return `<tr><td>${esc(m.short)}</td><td>${A(a,m.v2)}</td><td>${st10}</td><td>${st20}</td><td>${v2}</td></tr>`}).join("");
+ $("dtab").innerHTML=`<div class="dt"><table><thead><tr><th>Value</th><th>Real yield</th><th>Looks like at ×10</th><th>Looks like at ×20</th><th>IMS (${fmt(thr)})</th></tr></thead><tbody>${rows}</tbody></table><p>Largest decoupled test that would still look smaller than the IMS level: <b>${fmt(thr*10)}</b> at ×10, <b>${fmt(thr*20)}</b> at ×20, <b>${fmt(thr*70)}</b> at ×70. This is simple arithmetic (IMS level × factor). It assumes a cavity big enough to achieve the factor; I have not sourced a size limit.</p></div>`}
+function update(){
+ const yv=10**st.y,app=yv/st.f;
+ $("ylab").textContent=fmt(yv);$("real").textContent=fmt(yv);$("app").textContent=st.f>1?"~"+fmt(app):fmt(app);$("thr").textContent="~"+fmt(st.th);
+ const h=yv/1.5e7;$("hir").textContent=h>=1?(h<10?h.toFixed(1):Math.round(h).toLocaleString("en-US"))+"×":(h*100>=0.01?(h*100).toPrecision(2)+"%":"< 0.01%");
+ const v=$("verdict"),seen=app>=st.th;v.className="verdict"+(seen?" seen":"");
+ v.innerHTML=rich(seen?V.seen:(st.f>1&&yv>=st.th?V.muff:(app>=2e5?V.below:V.far)));
+ draw();buildTable();
+}
+$("yield").addEventListener("input",e=>{st.y=Math.min(SMAX,Math.max(SMIN,invU(+e.target.value)));const near=M.filter(m=>m.k!=="ims"&&(m.v2?(st.y>=L(m.v)-.05&&st.y<=L(m.v2)+.05):Math.abs(st.y-L(m.v))<.08))[0];if(near)show(near);else $("card").innerHTML=EMPTY;update()});
+const setSlider=()=>{$("yield").value=Math.min(UMAX,Math.max(UMIN,fU(st.y)))};
+const seg=(ids,fn)=>ids.forEach((id,i)=>$(id).addEventListener("click",()=>{ids.forEach((j,k)=>$(j).setAttribute("aria-pressed",k===i));fn(i);update()}));
+const FS=[1,10,20,70];
+seg(["dc0","dc1","dc2","dc3"],i=>st.f=FS[i]);seg(["th0","th1"],i=>st.th=i?250000:500000);
+$("yield").min=UMIN;$("yield").max=UMAX;setSlider();
+update();
+{const fs=$("fs");if(fs.scrollWidth>fs.clientWidth){const f=fU(L(3e5));fs.scrollLeft=fs.scrollWidth*f-fs.clientWidth/2}}
+const tabs=[["t1","tab-explore"],["t2","tab-quiz"]];
+tabs.forEach(([t,pn])=>$(t).addEventListener("click",()=>{tabs.forEach(([t2,p2])=>{$(t2).setAttribute("aria-selected",t2===t);$(p2).hidden=p2!==pn});if(pn==="tab-explore")draw();window.scrollTo({top:$("t1").parentElement.offsetTop,behavior:"smooth"})}));
+/* quiz */
+const LAB={allowed:"Widely read as permitted",banned:"Prohibited",disputed:"Unclear"};
+const COOKIE=`<svg class="cookie" viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="#c98a4b"/><circle cx="20" cy="20" r="17" fill="none" stroke="#a96b30" stroke-width="2"/><circle cx="13" cy="14" r="2.6" fill="#4a2c17"/><circle cx="25" cy="12" r="2.2" fill="#4a2c17"/><circle cx="27" cy="24" r="2.8" fill="#4a2c17"/><circle cx="15" cy="26" r="2.4" fill="#4a2c17"/><circle cx="21" cy="19" r="1.8" fill="#4a2c17"/></svg>`;
+let qi=0,revealed=false;const answers=[];const last=Q.length-1;
+if(!Q.length){$("qt").textContent="No questions yet.";return}
+const scoreNow=()=>answers.reduce((n,x,k)=>n+(x!==undefined&&Q[k].a.includes(x)?1:0),0);
+const answered=()=>answers.filter(x=>x!==undefined).length;
+function showQ(i){qi=i;const q=Q[i],a=answers[i];$("qn").textContent=`${i+1} of ${Q.length}`;$("qt").innerHTML=rich(q.q);
+ const opts=q.tf?[["true","True"],["false","False"]]:[["allowed","Permitted"],["banned","Prohibited"],["disputed","Unclear"]];
+ $("ans").innerHTML=opts.map(o=>`<button class="${o[0]==="true"?"true_":o[0]==="false"?"false_":o[0]}" data-v="${o[0]}">${o[1]}</button>`).join("");
+ $("ans").querySelectorAll("button").forEach(b=>{b.addEventListener("click",()=>pick(b));if(a){b.disabled=b.dataset.v!==a;if(b.dataset.v===a)b.classList.add("picked")}});
+ if(a){const ok=q.a.includes(a),body=q.cu[a]||q.ex,head=q.noV?"":(q.tf?(q.a[0]==="true"?"True.":"False."):LAB[q.a[0]]+".");
+  $("fb").innerHTML=`<div><h3>${ok?"Right.":"Not quite."}</h3><p>${head?`<b>${head}</b> `:""}${rich(body)}</p></div><div class="score"></div>`}
+ else $("fb").innerHTML='<div><h3>Make your call</h3><p>The reasoning appears here.</p></div><div class="score"></div>';
+ $("prev").disabled=i===0;$("nx").disabled=!a;$("nx").innerHTML=i===last?"Play again":"Next &rarr;";
+ const f=$("final");if(answered()===Q.length){f.hidden=false;if(!revealed){f.innerHTML='<button class="chip" id="reveal" style="font-size:17px;padding:12px 24px">Reveal score</button>';$("reveal").addEventListener("click",()=>{revealed=true;showQ(qi)})}else{const n=scoreNow(),e=EN.find(x=>n>=x.min);f.innerHTML=`<b>Final score: ${n} / ${Q.length}</b><br>`+(e?rich(e.txt)+(e.cookie?" "+COOKIE:""):"")}}else f.hidden=true}
+function pick(b){if(answers[qi]!==undefined)return;answers[qi]=b.dataset.v;showQ(qi)}
+$("prev").addEventListener("click",()=>{if(qi>0)showQ(qi-1)});
+$("nx").addEventListener("click",()=>{if(qi===last){answers.length=0;revealed=false;showQ(0)}else showQ(qi+1)});
+showQ(0);
+}
+
+fetch("content.txt",{cache:"no-cache"}).then(r=>{if(!r.ok)throw new Error(r.status);return r.text()}).then(t=>{
+ const data=build(parse(t));
+ if(warns.length){const w=$("warn");w.hidden=false;w.innerHTML="<b>Check content.txt:</b><br>"+warns.map(esc).join("<br>")}
+ run(data)}).catch(err=>{const w=$("warn");w.hidden=false;w.textContent="The page could not load content.txt ("+err.message+"). It must sit in the same folder as index.html.";console.error(err)});
+}
+</script>
+</body>
+</html>
