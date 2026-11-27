@@ -203,30 +203,30 @@ text: "What the seismometers see" is the real yield divided by the decoupling fa
 
 QUIZ INTRO
 heading: How is each event under the CTBT widely read?
-intro: Pick how each is widely read under the treaty. This serves to highlight the ongoing ambiguities between what counts as a prohibited nuclear explosion.
+intro: Pick how each event is widely understood under the treaty: permitted, prohibited or unclear. This should give you an idea of the depth of ambiguities and technicalities surrounding what constitutes a prohibited nuclear explosion. Don't worry if you are unsure – that really is the point!
 
 QUESTION
-question: A subcritical experiment with plutonium
+question: A subcritical experiments with with fissile material
 answer: permitted
-explain: Subcritical experiments, which do not produce a self-sustaining fission chain reaction, are permitted. The yield of fission energy from one is minuscule.
+explain: Subcritical experiments, which do not produce a self-sustaining fission chain reaction, are permitted. 
 
 QUESTION
-question: A hydronuclear experiment releasing a few kilograms of TNT equivalent
+question: A hydronuclear test releasing a few kilograms of TNT equivalent
 answer: unclear or prohibited
-explain: Depends on whom you ask. The US definition of zero yield prohibits all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind. However, Russia reportedly considered that the release of nuclear energy from permitted experiments might range up to 100 kg of TNT equivalent, unlike the US limit of around 2 kg. This implies that Russia is likely to have a more liberal interpretation of the zero-yield standard, and has never accepted the US definition of the zero-yield standard on technical terms. Reported declarations from Russian officials indicate that testing with yields around 100 kg is not a violation of the hydronuclear regime.
+explain: Depends on whom you ask. The US definition of zero yield prohibits all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind. However, Russia reportedly considered that the release of nuclear energy from permitted experiments might range up to 100 kg of TNT equivalent, unlike the US limit of around 2 kg. Russia is likely to have a more liberal interpretation of the zero-yield standard, and has never accepted the US definition of the zero-yield standard on technical terms. Reported declarations from Russian officials indicate that testing with yields around 100 kg is not a violation of the hydronuclear regime.
 explain if permitted: Under the US definition of zero yield, to which the CTBT is commonly referred, all nuclear explosions that produce a self-sustaining supercritical chain reaction of any kind are prohibited. However, it is worth noting that reported declarations from Russian officials suggest that testing with yields of around 100 kg would not violate the hydronuclear regime.
 show verdict: no
 
 QUESTION
-question: A hydronuclear experiment run inside a large containment vessel in a laboratory
+question: A hydronuclear test run inside a large containment vessel in a laboratory
 answer: unclear or prohibited
-explain: Again, depends on whom you ask. In the US interpretation of the zero-yield standard, hydronuclear experiments that briefly produce supercritical nuclear chain reactions are prohibited, irrespective of whether they are conducted in a containment vessel in a laboratory. However, it is worth noting that it is unclear whether Russia views hydronuclear "experiments" as prohibited "explosions."
+explain: Again, depends on whom you ask. In the US interpretation of the zero-yield standard, hydronuclear experiments that briefly produce supercritical nuclear chain reactions are prohibited, irrespective of whether they are conducted in a containment vessel in a laboratory. However, it is worth noting that it is unclear whether Russia views hydronuclear "experiments" (or tests) as prohibited "explosions."
 show verdict: no
 
 QUESTION
-question: A nuclear test set off in a salt cavity to muffle the signal
+question: A nuclear test set off in an underground salt cavity to muffle the signal
 answer: prohibited
-explain: The CTBT prohibits all nuclear test explosions and does not control how they are conducted. A cavity changes only how much of the signal the monitoring network sees.
+explain: A nuclear test in a salt cavity to muffle or reduce the seismic signal would be a cheating scenario to evade monitoring capabilities. Known as a "decoupled explosion," it is therefore as prohibited as any other, since the CTBT bans all nuclear test explosions and does not control how they are conducted.
 
 QUESTION
 question: A "peaceful" nuclear explosion to dig a canal
