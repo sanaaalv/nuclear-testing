@@ -73,7 +73,7 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--apricot);outlin
 .verdict{margin-top:14px;font-weight:500;padding:12px 14px;border-radius:14px;background:color-mix(in srgb,var(--rose) 16%,var(--bg))}
 .verdict.seen{background:color-mix(in srgb,var(--sage) 20%,var(--bg))}
 .note{font-size:14px;color:var(--mute);margin:14px 0 0}
-.game{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:stretch}
+.game{display:flex;flex-direction:column;gap:18px;max-width:760px;margin:0 auto}
 .tabs{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;justify-content:center;gap:8px;padding:12px 5vw;border-block:1px solid var(--soft2)}
 .tabs button{font:500 16px Inter,sans-serif;border:0;background:none;color:var(--mute);padding:10px 22px;min-height:44px;border-radius:999px;cursor:pointer}
 .tabs button[aria-selected=true]{background:var(--ink);color:var(--bg)}
@@ -101,7 +101,7 @@ details.srcs summary::after{content:" +";color:var(--apricot)}
 details.srcs[open] summary::after{content:" \2212"}
 .srcs h3{font-size:19px;margin:22px 0 8px;max-width:820px;margin-inline:auto}
 .srcs ol{margin-inline:auto}
-.q{background:var(--soft);border-radius:26px;padding:28px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between}
+.q{background:var(--soft);border-radius:26px;padding:28px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between}
 .q .n{font-size:14px;color:var(--mute);font-weight:500}
 .q .t{font:500 clamp(23px,2.7vw,30px)/1.2 Newsreader,Georgia,serif;margin:10px 0 22px}
 .ans{display:flex;flex-wrap:wrap;gap:10px}
@@ -113,7 +113,10 @@ details.srcs[open] summary::after{content:" \2212"}
 .ans .false_{background:color-mix(in srgb,var(--apricot) 34%,var(--soft))}
 .ans button:disabled{opacity:.4;cursor:default}
 .ans button.picked{opacity:1;box-shadow:0 0 0 2px var(--ink)}
-.fb{border-radius:26px;background:var(--soft);padding:28px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between}
+.fb{border-radius:26px;background:var(--soft);padding:26px 28px;display:flex;flex-direction:column;animation:fbIn .35s ease-out}
+.fb[hidden]{display:none}
+@keyframes fbIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.fb{animation:none}}
 .fb h3{margin:0 0 8px;font-size:26px}
 .fb p{margin:0}
 .fb .next{margin-top:16px}
@@ -123,7 +126,7 @@ details.srcs[open] summary::after{content:" \2212"}
 a{color:var(--sky)}
 .foot{background:var(--soft)}
 .foot h2{font-size:26px}
-@media(max-width:760px){.two,.game{grid-template-columns:minmax(0,1fr)}.swipe{display:block}}
+@media(max-width:760px){.two{grid-template-columns:minmax(0,1fr)}.swipe{display:block}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 .warn{background:#fff2b3;color:#3a2e00;padding:12px max(5vw,18px);font-size:15px;border-bottom:1px solid #e3c94a}
 </style>
@@ -351,7 +354,8 @@ function showQ(i){qi=i;const q=Q[i],a=answers[i];$("qn").textContent=`${i+1} of 
  $("ans").querySelectorAll("button").forEach(b=>{b.addEventListener("click",()=>pick(b));if(a){b.disabled=b.dataset.v!==a;if(b.dataset.v===a)b.classList.add("picked")}});
  if(a){const ok=q.a.includes(a),body=q.cu[a]||q.ex,head=q.noV?"":(q.tf?(q.a[0]==="true"?"True.":"False."):LAB[q.a[0]]+".");
   $("fb").innerHTML=`<div><h3>${ok?"Right.":"Not quite."}</h3><p>${head?`<b>${head}</b> `:""}${rich(body)}</p></div><div class="score"></div>`}
- else $("fb").innerHTML='<div><h3>Make your call</h3><p>The reasoning appears here.</p></div><div class="score"></div>';
+ else $("fb").innerHTML="";
+ $("fb").hidden=!a;
  $("prev").disabled=i===0;$("nx").disabled=!a;$("nx").innerHTML=i===last?"Play again":"Next &rarr;";
  const f=$("final");if(answered()===Q.length){f.hidden=false;if(!revealed){f.innerHTML='<button class="chip" id="reveal" style="font-size:17px;padding:12px 24px">Reveal score</button>';$("reveal").addEventListener("click",()=>{revealed=true;showQ(qi)})}else{const n=scoreNow(),e=EN.find(x=>n>=x.min);f.innerHTML=`<b>Final score: ${n} / ${Q.length}</b><br>`+(e?rich(e.txt)+(e.cookie?" "+COOKIE:""):"")}}else f.hidden=true}
 function pick(b){if(answers[qi]!==undefined)return;answers[qi]=b.dataset.v;showQ(qi)}
